@@ -9,14 +9,19 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#000000;color:#fff;min-height:100vh;}
 .header{width:100%;background:#000;padding:0;}
-.top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#000;border-bottom:2px solid #1a1a1a;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 15px;background:#000;border-bottom:2px solid #1a1a1a;min-height:60px;}
 .logo-left{display:flex;align-items:center;gap:10px;}
-.logo-icon{width:48px;height:48px;background:#111;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1.5px solid #222;}
+.logo-icon{width:48px;height:48px;background:#111;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1.5px solid #222;flex-shrink:0;}
 .logo-icon img{width:100%;height:100%;object-fit:cover;display:block;}
+
+.store-title-wrap{display:flex;flex-direction:column;line-height:1;}
 .store-title{font-size:22px;font-weight:900;letter-spacing:0.5px;color:#fff;line-height:1;}
 .store-title span{color:#ff0000;}
+.typing-wrap{font-size:10px;font-weight:500;color:#aaa;height:14px;margin-top:2px;letter-spacing:0.3px;overflow:hidden;white-space:nowrap;}
+.typing-wrap span{color:#fff;}
+.cursor{display:inline-block;width:2px;height:10px;background:#ff0000;margin-left:3px;animation:blink 0.8s infinite;vertical-align:middle;}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
 
-/* BANNER SLIDER - ONLY YOUR FILES */
 .banner{width:100%;max-width:700px;margin:0 auto;position:relative;overflow:hidden;height:230px;background:#000;}
 .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 0.8s ease-in-out;pointer-events:none;}
 .slide.active{opacity:1;pointer-events:auto;}
@@ -34,7 +39,7 @@ body{background:#000000;color:#fff;min-height:100vh;}
 .main-title span{color:#ff0000;}
 
 .grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;}
-.game-card{background:#111111;border:1.5px solid #222222;border-radius:16px;padding:8px 8px 10px 8px;text-align:center;transition:0.2s;position:relative;overflow:hidden;}
+.game-card{background:#111111;border:1.5px solid #222222;border-radius:16px;padding:8px 8px 10px 8px;text-align:center;transition:0.2s;}
 .game-card:hover{border-color:#ff0000;transform:translateY(-3px);box-shadow:0 5px 20px rgba(255,0,0,0.2);}
 .game-name{font-size:11px;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:center;line-height:1.2;margin-bottom:6px;color:#fff;}
 .game-card img{width:100%;height:100px;object-fit:cover;border-radius:12px;margin-bottom:8px;background:#000;border:1px solid #222;}
@@ -51,17 +56,20 @@ body{background:#000000;color:#fff;min-height:100vh;}
 <div class="logo-icon">
 <img src="3ec4791e-5aa7-496d-9de4-083e6188c99d.jpeg" alt="LOGO">
 </div>
+<div class="store-title-wrap">
 <div class="store-title">LAKIYA <span>STORE</span></div>
+<div class="typing-wrap"><span id="typing"></span><span class="cursor"></span></div>
 </div>
-<div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;">FAST DELIVERY</div>
+</div>
+<div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;flex-shrink:0;">FAST DELIVERY</div>
 </div>
 
 <div class="banner" id="bannerSlider">
-<div class="slide active"><img src="95543564-eda9-4b80-b990-3948dae52dec.jpeg" alt="Event 1"></div>
-<div class="slide"><img src="IMG_3977.jpeg" alt="Event 2"></div>
-<div class="slide"><img src="aa917865-cbe4-4ae1-8609-826e02410079.jpeg" alt="Event 3"></div>
-<div class="slide"><img src="119c69d4-27a9-4d6a-b929-87c3e555edf3.jpeg" alt="Event 4"></div>
-<div class="slide"><img src="IMG_3979.jpeg" alt="Event 5"></div>
+<div class="slide active"><img src="event1.jpg" alt="Event 1"></div>
+<div class="slide"><img src="event2.jpg" alt="Event 2"></div>
+<div class="slide"><img src="event3.jpg" alt="Event 3"></div>
+<div class="slide"><img src="event4.jpg" alt="Event 4"></div>
+<div class="slide"><img src="event5.jpg" alt="Event 5"></div>
 <div class="dots" id="dots"></div>
 </div>
 
@@ -75,31 +83,24 @@ body{background:#000000;color:#fff;min-height:100vh;}
 </div>
 
 <script>
+// GAMES
 const games = [
-{ name: "Free Fire SG", img: "4232e01e-6fd8-41ca-80d3-bd771804e26b.jpeg", file: "freefire-sg.html" },
+{ name: "Free Fire SG", img: "freefire.jpg", file: "freefire-sg.html" },
 { name: "Blood Strike", img: "bloodstrike.jpg", file: "bloodstrike.html" },
 { name: "Mobile Legends", img: "mlbb.jpg", file: "mobile-legends.html" },
 { name: "PUBG Mobile", img: "pubg.jpg", file: "pubg.html" },
 { name: "Valorant SG", img: "valorant.jpg", file: "valorant.html" },
 { name: "Delta Force", img: "delta.jpg", file: "deltaforce.html" },
 ];
-
 const grid = document.getElementById('gameGrid');
 games.forEach(g=>{
-grid.innerHTML += `
-<div class="game-card">
-<div class="game-name">${g.name}</div>
-<img src="${g.img}" alt="${g.name}">
-<button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button>
-</div>
-`;
+grid.innerHTML += `<div class="game-card"><div class="game-name">${g.name}</div><img src="${g.img}" alt="${g.name}"><button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button></div>`;
 });
 
-// SLIDER - ONLY YOUR 5 FILES - NO OTHER PHOTOS
+// SLIDER
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots');
-
 slides.forEach((_, i) => {
   const dot = document.createElement('div');
   dot.classList.add('dot');
@@ -108,7 +109,6 @@ slides.forEach((_, i) => {
   dotsContainer.appendChild(dot);
 });
 const dots = document.querySelectorAll('.dot');
-
 function showSlide(index){
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
@@ -116,11 +116,37 @@ function showSlide(index){
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
 }
+setInterval(()=>{ let next = (currentSlide + 1) % slides.length; showSlide(next); }, 3000);
 
-setInterval(()=>{
-  let next = (currentSlide + 1) % slides.length;
-  showSlide(next);
-}, 3000);
+// TYPING EFFECT - LAKIYA STORE YATA
+const texts = ["Welcome to LAKIYA STORE", "Fast & Secure Top Up", "Instant Delivery 24/7", "Trusted in Sri Lanka"];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typingEl = document.getElementById('typing');
+
+function typeEffect(){
+  let currentText = texts[textIndex];
+  if(isDeleting){
+    typingEl.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typingEl.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let speed = isDeleting? 40 : 80;
+  if(!isDeleting && charIndex === currentText.length){
+    speed = 1500;
+    isDeleting = true;
+  } else if(isDeleting && charIndex === 0){
+    isDeleting = false;
+    textIndex = (textIndex + 1) % texts.length;
+    speed = 500;
+  }
+  setTimeout(typeEffect, speed);
+}
+typeEffect();
 </script>
 
 </body>
