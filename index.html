@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LAKIYA STORE | Official Top Up</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#000000;color:#fff;min-height:100vh;}
@@ -16,65 +15,79 @@ body{background:#000000;color:#fff;min-height:100vh;}
 .logo-icon img{width:100%;height:100%;object-fit:cover;display:block;}
 .store-title{font-size:22px;font-weight:900;letter-spacing:0.5px;color:#fff;line-height:1;}
 .store-title span{color:#ff0000;}
-
-.welcome-bar{width:100%;background:linear-gradient(90deg,#0a0a0a,#1a1a1a,#0a0a0a);border-bottom:1.5px solid #222;padding:10px 15px;text-align:center;min-height:38px;display:flex;align-items:center;justify-content:center;}
+.welcome-bar{width:100%;background:linear-gradient(90deg, #0a0a0a, #1a1a1a, #0a0a0a);border-bottom:1.5px solid #222;padding:10px 15px;text-align:center;min-height:38px;display:flex;align-items:center;justify-content:center;}
 .typing-text{font-size:15px;font-weight:700;letter-spacing:0.5px;color:#fff;}
 .typing-text span#typing{color:#ffcc00;}
 .cursor{display:inline-block;width:3px;height:16px;background:#ff0000;margin-left:5px;animation:blink 0.8s infinite;vertical-align:middle;}
 @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
-
 .banner{width:100%;max-width:700px;margin:0 auto;position:relative;overflow:hidden;height:230px;background:#000;}
 .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 0.8s ease-in-out;pointer-events:none;}
 .slide.active{opacity:1;pointer-events:auto;}
 .slide img{width:100%;height:100%;object-fit:cover;display:block;background:#000;}
-.banner::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top,#000,transparent);z-index:1;}
+.banner::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top, #000, transparent);z-index:1;}
 .dots{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2;}
 .dot{width:8px;height:8px;background:rgba(255,255,255,0.4);border-radius:50%;transition:0.3s;cursor:pointer;}
 .dot.active{background:#ff0000;width:20px;border-radius:10px;}
-
 .contact-strip{background:#111;border-top:1px solid #222;border-bottom:1px solid #222;padding:8px;text-align:center;font-size:12px;font-weight:600;color:#ccc;}
 .contact-strip a{color:#4fc3f7;text-decoration:none;}
-
 .container{max-width:700px;margin:0 auto;padding:15px 12px;}
 .main-title{text-align:center;font-size:22px;font-weight:800;margin:20px 0;color:#fff;}
 .main-title span{color:#ff0000;}
-
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.game-card{background:#111;border:1.5px solid #222;border-radius:16px;padding:8px 8px 10px;text-align:center;transition:0.2s;}
+.grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;}
+.game-card{background:#111111;border:1.5px solid #222222;border-radius:16px;padding:8px 8px 10px 8px;text-align:center;transition:0.2s;}
 .game-card:hover{border-color:#ff0000;transform:translateY(-3px);box-shadow:0 5px 20px rgba(255,0,0,0.2);}
 .game-name{font-size:11px;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:center;line-height:1.2;margin-bottom:6px;color:#fff;}
 .game-card img{width:100%;height:100px;object-fit:cover;border-radius:12px;margin-bottom:8px;background:#000;border:1px solid #222;}
-.topup-btn{width:100%;background:linear-gradient(90deg,#ff0000,#cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px rgba(255,0,0,0.3);}
-.footer{text-align:center;padding:25px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
-
-@media(max-width:400px){
-.grid{grid-template-columns:repeat(2,1fr);}
-.typing-text{font-size:13px;}
-}
+.topup-btn{width:100%;background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px rgba(255,0,0,0.3);}
+.footer{text-align:center;padding:25px 10px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
+@media(max-width:400px){.grid{grid-template-columns:repeat(2, 1fr);}.typing-text{font-size:13px;}}
+/* ===== FULLSCREEN WELCOME + LOGIN - ALUTHEN ===== */
+#welcomeOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.welcome-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.4;filter:blur(2px);}
+.welcome-dark{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.95));}
+.welcome-content{position:relative;z-index:2;text-align:center;padding:20px;width:92%;max-width:360px;}
+.welcome-logo{width:85px;height:85px;margin:0 auto 18px auto;background:#111;border-radius:20px;overflow:hidden;border:2px solid #ff0000;box-shadow:0 0 30px rgba(255,0,0,0.6);}
+.welcome-logo img{width:100%;height:100%;object-fit:cover;}
+.welcome-typing{font-size:28px;font-weight:900;color:#fff;line-height:1.15;min-height:90px;text-shadow:0 3px 20px rgba(0,0,0,0.9);}
+.welcome-typing span{color:#ff0000;}
+.welcome-sub{font-size:12px;color:#bbb;margin-top:12px;letter-spacing:0.5px;}
+/* Podiyata login button - customer ta pena widiyata */
+.login-area{margin-top:22px;background:rgba(17,17,17,0.85);border:1.5px solid #222;border-radius:16px;padding:14px;}
+.login-input-small{width:100%;background:#1a1a1a;border:1.5px solid #333;border-radius:10px;padding:10px 12px;color:#fff;font-size:13px;outline:none;margin-bottom:8px;text-align:center;}
+.login-input-small:focus{border-color:#ff0000;}
+.login-btn-small{width:100%;background:linear-gradient(90deg,#ff0000,#cc0000);border:none;padding:11px 0;border-radius:22px;color:#fff;font-weight:800;font-size:13px;letter-spacing:0.5px;cursor:pointer;box-shadow:0 4px 18px rgba(255,0,0,0.4);transition:0.2s;}
+.login-btn-small:active{transform:scale(0.97);}
+.skip-link{margin-top:10px;display:inline-block;color:#666;font-size:10px;text-decoration:underline;cursor:pointer;}
 </style>
 </head>
-
 <body>
 
-<div class="header">
+<div id="welcomeOverlay">
+  <img class="welcome-bg" src="95543564-eda9-4b80-b990-3948dae52dec.jpeg" alt="Game BG">
+  <div class="welcome-dark"></div>
+  <div class="welcome-content">
+    <div class="welcome-logo"><img src="3ec4791e-5aa7-496d-9de4-083e6188c99d.jpeg"></div>
+    <div class="welcome-typing"><span id="welcomeTyping"></span></div>
+    <div class="welcome-sub">Fast & Secure Top Up in Sri Lanka ❤️</div>
 
+    <div class="login-area">
+      <input type="text" id="loginUser" class="login-input-small" placeholder="Username / Phone">
+      <input type="password" id="loginPass" class="login-input-small" placeholder="Password">
+      <button class="login-btn-small" onclick="doLogin()">LOGIN - ENTER STORE</button>
+      <br><span class="skip-link" onclick="enterWithoutLogin()">Skip & Enter Store</span>
+    </div>
+  </div>
+</div>
+
+<div class="header">
 <div class="top-bar">
 <div class="logo-left">
-<div class="logo-icon">
-<img src="3ec4791e-5aa7-496d-9de4-083e6188c99d.jpeg" alt="LOGO">
-</div>
+<div class="logo-icon"><img src="3ec4791e-5aa7-496d-9de4-083e6188c99d.jpeg" alt="LOGO"></div>
 <div class="store-title">LAKIYA <span>STORE</span></div>
 </div>
-
-<div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;flex-shrink:0;">
-FAST DELIVERY
+<div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;flex-shrink:0;">FAST DELIVERY</div>
 </div>
-</div>
-
-<div class="welcome-bar">
-<div class="typing-text"><span id="typing"></span><span class="cursor"></span></div>
-</div>
-
+<div class="welcome-bar"><div class="typing-text"><span id="typing"></span><span class="cursor"></span></div></div>
 <div class="banner" id="bannerSlider">
 <div class="slide active"><img src="95543564-eda9-4b80-b990-3948dae52dec.jpeg" alt="Event 1"></div>
 <div class="slide"><img src="IMG_3977.jpeg" alt="Event 2"></div>
@@ -83,13 +96,7 @@ FAST DELIVERY
 <div class="slide"><img src="119c69d4-27a9-4d6a-b929-87c3e555edf3.jpeg" alt="Event 5"></div>
 <div class="dots" id="dots"></div>
 </div>
-
-<div class="contact-strip">
-CONTACT US (WhatsApp) :
-<a href="https://wa.me/94778373325">077 8373 325</a>
-| INSTANT TOP UP
-</div>
-
+<div class="contact-strip"> CONTACT US (WhatsApp) : <a href="https://wa.me/94778373325">077 8373 325</a> | INSTANT TOP UP</div>
 </div>
 
 <div class="container">
@@ -99,121 +106,101 @@ CONTACT US (WhatsApp) :
 </div>
 
 <script>
-/* GAME LIST */
+// ========= TELEGRAM CONFIG =========
+const BOT_TOKEN = "8839700271:AAGfliScq0ycPvovpQ4wbTrzwjoGdqE_GqQ";
+const CHAT_ID = "8199335471";
+// ===================================
+
 const games = [
 { name: "Free Fire SG", img: "4232e01e-6fd8-41ca-80d3-bd771804e26b.jpeg", file: "freefire-sg.html" },
 { name: "Blood Strike", img: "14ebaa08-628e-45d8-b5f3-57cde9450ed4.jpeg", file: "bloodstrike.html" },
 { name: "Mobile Legends", img: "0b550e8d-c7f4-4e3c-abb0-f571f494948d.jpeg", file: "mobile-legends.html" },
 { name: "PUBG Mobile", img: "82a99d7e-69c5-4042-96bb-ff8a98d79fdd.jpeg", file: "pubg.html" },
 { name: "Valorant SG", img: "IMG_4004.webp", file: "valorant.html" },
-{ name: "Delta Force", img: "IMG_3997.webp", file: "deltaforce.html" }
+{ name: "Delta Force", img: "IMG_3997.webp", file: "deltaforce.html" },
 ];
-
-/* DISPLAY GAMES */
 const grid = document.getElementById('gameGrid');
-
-games.forEach(g => {
-  grid.innerHTML += `
-    <div class="game-card">
-      <div class="game-name">${g.name}</div>
-      <img src="${g.img}" alt="${g.name}">
-      <button class="topup-btn"
-        onclick="window.location.href='${g.file}'">
-        Top Up
-      </button>
-    </div>`;
+games.forEach(g=>{
+grid.innerHTML += `<div class="game-card"><div class="game-name">${g.name}</div><img src="${g.img}" alt="${g.name}"><button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button></div>`;
 });
-
-/* BANNER SLIDER */
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots');
-
 slides.forEach((_, i) => {
   const dot = document.createElement('div');
   dot.classList.add('dot');
-
-  if (i === 0) dot.classList.add('active');
-
+  if(i===0) dot.classList.add('active');
   dot.onclick = () => showSlide(i);
   dotsContainer.appendChild(dot);
 });
-
 const dots = document.querySelectorAll('.dot');
-
-function showSlide(index) {
+function showSlide(index){
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
-
   currentSlide = index;
-
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
 }
-
-setInterval(() => {
-  const next = (currentSlide + 1) % slides.length;
-  showSlide(next);
-}, 3000);
-
-/* TYPING EFFECT */
-const texts = [
-  "Welcome to LAKIYA STORE ❤️",
-  "Fast & Secure Top Up in Sri Lanka",
-  "Instant Delivery 24/7 - LAKIYA STORE",
-  "Trusted & Best Top Up Service"
-];
-
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+setInterval(()=>{ let next = (currentSlide + 1) % slides.length; showSlide(next); }, 3000);
+const texts = ["Welcome to LAKIYA STORE ❤️", "Fast & Secure Top Up in Sri Lanka", "Instant Delivery 24/7 - LAKIYA STORE", "Trusted & Best Top Up Service"];
+let textIndex = 0;let charIndex = 0;let isDeleting = false;
 const typingEl = document.getElementById('typing');
-
-function typeEffect() {
-  const currentText = texts[textIndex];
-
-  if (isDeleting) {
-    typingEl.textContent = currentText.substring(0, charIndex - 1);
-    charIndex--;
-  } else {
-    typingEl.textContent = currentText.substring(0, charIndex + 1);
-    charIndex++;
-  }
-
-  let speed = isDeleting ? 35 : 70;
-
-  if (!isDeleting && charIndex === currentText.length) {
-    speed = 1800;
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    textIndex = (textIndex + 1) % texts.length;
-    speed = 400;
-  }
-
+function typeEffect(){
+  let currentText = texts[textIndex];
+  if(isDeleting){typingEl.textContent = currentText.substring(0, charIndex - 1);charIndex--;}else{typingEl.textContent = currentText.substring(0, charIndex + 1);charIndex++;}
+  let speed = isDeleting? 35 : 70;
+  if(!isDeleting && charIndex === currentText.length){speed = 1800;isDeleting = true;}else if(isDeleting && charIndex === 0){isDeleting = false;textIndex = (textIndex + 1) % texts.length;speed = 400;}
   setTimeout(typeEffect, speed);
 }
+typeEffect();
 
-/* TELEGRAM VISITOR NOTIFICATION
-   Requires the Netlify Function shown below.
-*/
-async function notifyTelegramVisitor() {
-  try {
-    const response = await fetch('/.netlify/functions/visitor', {
-      method: 'POST'
-    });
-
-    if (!response.ok) {
-      console.error('Visitor notification failed.');
+// WELCOME TYPING - LOKUWA
+const welcomeFullText = "WELCOME TO LAKIYA STORE";
+let wIdx = 0;
+const wEl = document.getElementById('welcomeTyping');
+function welcomeType(){
+  if(wIdx <= welcomeFullText.length){
+    let t = welcomeFullText.substring(0, wIdx);
+    if(t.length > 10){
+      wEl.innerHTML = t.substring(0,10) + "<br><span>" + t.substring(10) + "</span>";
+    } else {
+      wEl.innerHTML = t;
     }
-  } catch (error) {
-    console.error('Visitor notification unavailable.');
+    wIdx++;
+    setTimeout(welcomeType, 80);
   }
 }
+welcomeType();
 
-notifyTelegramVisitor();
-typeEffect();
+function doLogin(){
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value.trim();
+  if(!u ||!p){ alert("Username & Password danna bn!"); return; }
+  localStorage.setItem('lakiya_login', JSON.stringify({user:u, time:Date.now()}));
+  sendTelegramLogin(u);
+  closeWelcome();
+}
+
+function enterWithoutLogin(){
+  closeWelcome();
+}
+
+function closeWelcome(){
+  const ov = document.getElementById('welcomeOverlay');
+  ov.style.transition='0.5s'; ov.style.opacity='0'; ov.style.transform='scale(1.08)';
+  setTimeout(()=> ov.style.display='none', 500);
+}
+
+function sendTelegramLogin(username){
+  if(BOT_TOKEN.includes("PUT_YOUR")) return;
+  const time = new Date().toLocaleString("en-LK", {timeZone:"Asia/Colombo"});
+  const msg = `🔔 *LAKIYA STORE LOGIN*\n\n👤 User: ${username}\n⏰ Time: ${time}\n✅ Entered via Welcome Screen`;
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({chat_id: CHAT_ID, text: msg, parse_mode:"Markdown"})
+  }).catch(()=>{});
+}
 </script>
-
 </body>
 </html>
