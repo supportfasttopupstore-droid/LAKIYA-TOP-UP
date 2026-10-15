@@ -59,9 +59,9 @@ const packs = [
 { id:3, name:"60 UC", price:335, img:"IMG_4100.webp" },
 { id:4, name:"325 UC", price:1650, img:"IMG_4100.webp" },
 { id:5, name:"660 UC", price:3380, img:"IMG_4100.webp" },
-{ id:6, name:"1800 UC", price:8320, img:"pubg_1800uc.jpg" },
-{ id:7, name:"3850 UC", price:16600, img:"pubg_3850uc.jpg" },
-{ id:8, name:"8100 UC", price:33050, img:"pubg_8100uc.jpg" },
+{ id:6, name:"1800 UC", price:8320, img:"IMG_4101.webp" },
+{ id:7, name:"3850 UC", price:16600, img:"IMG_4101.webp" },
+{ id:8, name:"8100 UC", price:33050, img:"IMG_4101.webp" },
 ];
 const grid = document.getElementById('grid'); let cart = {};
 packs.forEach(p=>{ grid.innerHTML += `<div class="pack" id="pack-${p.id}"><img class="pack-img" src="${p.img}" onerror="this.src='https://via.placeholder.com/100x100/111/ff0000?text=PUBG'"><div class="pack-name">${p.name}</div><div class="pack-price">Rs. <span>${p.price}</span></div><div class="qty"><button class="qbtn" onclick="chg(${p.id}, -1)">−</button><div class="qnum" id="q-${p.id}">0</div><button class="qbtn" onclick="chg(${p.id}, 1)">+</button></div></div>`; });
