@@ -16,56 +16,40 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 .store-title span{color:#ff0000;}
 
 .container{max-width:700px;margin:0 auto;padding:0 12px;}
-
-/* GAME HEADER - OYA RAUM KARA THANATH */
 .game-header{display:flex;gap:14px;align-items:center;padding:15px 0 10px 0;}
 .game-logo{width:82px;height:82px;border-radius:18px;overflow:hidden;border:2px solid #ff0000;background:#111;flex-shrink:0;box-shadow:0 0 20px rgba(255,0,0,0.25);}
 .game-logo img{width:100%;height:100%;object-fit:cover;display:block;}
 .game-info h1{font-size:23px;font-weight:800;line-height:1.1;}
 .game-info p{font-size:12px;color:#bbb;margin-top:4px;}
-.game-info p b{color:#00ff88;}
 
-/* ID SECTION */
 .id-box{background:#0e0e0e;border:1.5px solid #222;border-radius:20px;padding:18px 15px;margin:10px 0 15px 0;}
 .id-label{color:#ff0000;font-size:17px;font-weight:800;margin-bottom:12px;}
 .id-row{display:flex;gap:8px;}
 .id-row input{flex:1;background:#1a1a1a;border:1.5px solid #333;border-radius:12px;padding:13px 15px;color:#fff;font-size:14px;outline:none;text-align:center;}
 .id-row input:focus{border-color:#ff0000;}
-.verify-btn{background:linear-gradient(90deg, #ff0000, #b80000);border:none;padding:13px 20px;border-radius:12px;color:#fff;font-weight:800;font-size:13px;cursor:pointer;box-shadow:0 4px 12px rgba(255,0,0,0.3);}
-
-/* VERIFIED KALLA */
-.verified-card{display:none;background:linear-gradient(135deg, #0a1a0a, #111);border:1.5px solid #00ff88;border-radius:14px;padding:12px 14px;margin-top:12px;align-items:center;gap:12px;animation:pop 0.3s ease;}
-.verified-card.show{display:flex;}
-@keyframes pop{0%{transform:scale(0.9);opacity:0}100%{transform:scale(1);opacity:1}}
-.verified-icon{width:42px;height:42px;background:#00ff88;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;color:#000;font-weight:900;}
-.verified-text{line-height:1.2;}
-.verified-text.v1{color:#00ff88;font-size:12px;font-weight:800;}
-.verified-text.v2{color:#fff;font-size:14px;font-weight:700;margin-top:2px;}
-.verified-text.v3{color:#aaa;font-size:11px;}
 
 .section-title{font-size:14px;font-weight:600;color:#888;margin:18px 0 12px 5px;}
 
 .grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:12px;}
-.pack{background:#111;border:1.5px solid #222;border-radius:16px;padding:12px 8px;text-align:center;transition:0.2s;position:relative;}
+.pack{background:#111;border:1.5px solid #222;border-radius:16px;padding:12px 8px;text-align:center;transition:0.2s;}
 .pack.selected{border-color:#ff0000;background:#1a0f0f;box-shadow:0 0 15px rgba(255,0,0,0.2);}
 .pack-img{width:64px;height:64px;object-fit:cover;border-radius:12px;margin:0 auto 8px auto;display:block;background:#000;border:1px solid #222;}
 .pack-name{font-size:12px;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:center;color:#fff;line-height:1.2;}
 .pack-price{margin:8px 0;background:#000;border:1px solid #222;border-radius:20px;padding:5px 0;font-size:12px;color:#aaa;}
 .pack-price span{color:#ffcc00;font-weight:800;font-size:14px;}
 
-.btn-add{width:100%;background:#000;border:1.5px solid #333;color:#fff;padding:7px 0;border-radius:10px;font-weight:700;font-size:13px;cursor:pointer;}
-.pack.selected.btn-add{background:linear-gradient(90deg, #ff0000, #990000);border-color:#ff0000;}
+/* + - ONLY */
+.qty{display:flex;justify-content:space-between;align-items:center;background:#000;border:1.5px solid #333;border-radius:10px;margin-top:8px;overflow:hidden;}
+.pack.selected.qty{border-color:#ff0000;}
+.qbtn{width:42px;height:36px;background:#1a1a1a;border:none;color:#fff;font-size:20px;font-weight:800;cursor:pointer;transition:0.2s;}
+.pack.selected.qbtn{background:#ff0000;}
+.qbtn:active{transform:scale(0.9);}
+.qnum{flex:1;text-align:center;font-weight:800;font-size:15px;color:#fff;}
 
-.qty{display:none;justify-content:space-between;align-items:center;background:#000;border:1px solid #ff0000;border-radius:10px;margin-top:8px;overflow:hidden;}
-.pack.selected.qty{display:flex;}
-.qbtn{width:40px;height:34px;background:#ff0000;border:none;color:#fff;font-size:20px;font-weight:800;cursor:pointer;}
-.qnum{flex:1;text-align:center;font-weight:800;font-size:14px;}
-
-/* NEXT BUTTON - PACK THERUWOTH VITHARAI */
 .checkout{position:fixed;bottom:0;left:0;width:100%;background:#111;border-top:2px solid #ff0000;padding:12px 15px;display:none;justify-content:space-between;align-items:center;z-index:99;}
 .checkout.show{display:flex;}
-.checkout.total{font-size:12px;color:#aaa;}
-.checkout.total b{color:#fff;font-size:18px;}
+.total{font-size:12px;color:#aaa;}
+.total b{color:#fff;font-size:18px;}
 .next-btn{background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:12px 28px;border-radius:25px;color:#fff;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 5px 20px rgba(255,0,0,0.4);}
 </style>
 </head>
@@ -81,7 +65,7 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 
 <div class="container">
 <div class="game-header">
-<div class="game-logo"><img src="14ebaa08-628e-45d8-b5f3-57cde9450ed4.jpeg" alt="Blood Strike" onerror="this.src='bloodstrike-logo.jpg'"></div>
+<div class="game-logo"><img src="14ebaa08-628e-45d8-b5f3-57cde9450ed4.jpeg" alt="Blood Strike"></div>
 <div class="game-info">
 <h1>Blood Strike</h1>
 <p>✔ Safety guarantee</p>
@@ -93,19 +77,10 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 <div class="id-label">Enter the User ID</div>
 <div class="id-row">
 <input type="text" id="uid" placeholder="Enter User ID">
-<button class="verify-btn" onclick="verifyID()">VERIFY</button>
-</div>
-<div id="vCard" class="verified-card">
-<div class="verified-icon">✓</div>
-<div class="verified-text">
-<div class="v1">ID VERIFIED</div>
-<div class="v2" id="vName">Player Name</div>
-<div class="v3" id="vId">ID: 123456</div>
-</div>
 </div>
 </div>
 
-<div class="section-title">Other</div>
+<div class="section-title">Select Packs</div>
 <div class="grid" id="grid"></div>
 </div>
 
@@ -115,7 +90,6 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 </div>
 
 <script>
-// PACK DATA - ME FILE NAMES UBA WENAS KARANNA
 const packs = [
 { id:1, name:"Level-Up Pass", price:680, img:"pack1.jpg" },
 { id:2, name:"Strike Pass Elite", price:1365, img:"pack2.jpg" },
@@ -139,42 +113,27 @@ grid.innerHTML += `
 <img class="pack-img" src="${p.img}" onerror="this.src='https://via.placeholder.com/100x100/111/ff0000?text=PACK'">
 <div class="pack-name">${p.name}</div>
 <div class="pack-price">Rs. <span>${p.price}</span></div>
-<button class="btn-add" onclick="addPack(${p.id})">Add</button>
 <div class="qty">
 <button class="qbtn" onclick="chg(${p.id}, -1)">−</button>
-<div class="qnum" id="q-${p.id}">1</div>
+<div class="qnum" id="q-${p.id}">0</div>
 <button class="qbtn" onclick="chg(${p.id}, 1)">+</button>
 </div>
 </div>
 `;
 });
 
-function verifyID(){
-  const id = document.getElementById('uid').value.trim();
-  if(!id){ alert("ID eka danna bn!"); return; }
-  const card = document.getElementById('vCard');
-  document.getElementById('vId').textContent = "ID: " + id;
-  // Fake name - API ekak nathnam mehemai
-  document.getElementById('vName').textContent = "IGN: BloodPlayer_" + id.slice(-4);
-  card.classList.add('show');
-}
-
-function addPack(id){
-  cart[id] = (cart[id]||0) + 1;
-  update(id);
-}
 function chg(id, d){
   cart[id] = (cart[id]||0) + d;
-  if(cart[id]<=0) delete cart[id];
-  update(id);
-}
-function update(id){
+  if(cart[id] < 0) cart[id]=0;
+  if(cart[id]==0) delete cart[id];
   const el = document.getElementById(`pack-${id}`);
   const q = document.getElementById(`q-${id}`);
-  if(cart[id]){ el.classList.add('selected'); q.textContent = cart[id]; }
-  else { el.classList.remove('selected'); }
+  q.textContent = cart[id] || 0;
+  if(cart[id]) el.classList.add('selected');
+  else el.classList.remove('selected');
   calc();
 }
+
 function calc(){
   let total=0, count=0;
   for(let id in cart){
@@ -188,18 +147,19 @@ function calc(){
   if(count>0) co.classList.add('show');
   else co.classList.remove('show');
 }
+
 function goPay(){
   const uid = document.getElementById('uid').value.trim();
-  if(!uid){ alert("ID verify karanna bn!"); return; }
+  if(!uid){ alert("User ID eka danna bn!"); return; }
   let items=[];
   for(let id in cart){
     let p=packs.find(x=>x.id==id);
     items.push({name:p.name, price:p.price, qty:cart[id]});
   }
+  if(items.length==0){ alert("Pack ekak thoranna bn!"); return; }
   localStorage.setItem('lakiya_order', JSON.stringify({
     game:"Blood Strike",
     userId:uid,
-    gameName:document.getElementById('vName').textContent,
     items:items,
     total:document.getElementById('tPrice').textContent
   }));
