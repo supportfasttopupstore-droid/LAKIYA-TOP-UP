@@ -9,17 +9,18 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#000000;color:#fff;min-height:100vh;}
 .header{width:100%;background:#000;padding:0;}
-.top-bar{display:flex;justify-content:space-between;align-items:center;padding:10px 15px;background:#000;border-bottom:2px solid #1a1a1a;min-height:60px;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#000;border-bottom:2px solid #1a1a1a;}
 .logo-left{display:flex;align-items:center;gap:10px;}
 .logo-icon{width:48px;height:48px;background:#111;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1.5px solid #222;flex-shrink:0;}
 .logo-icon img{width:100%;height:100%;object-fit:cover;display:block;}
-
-.store-title-wrap{display:flex;flex-direction:column;line-height:1;}
 .store-title{font-size:22px;font-weight:900;letter-spacing:0.5px;color:#fff;line-height:1;}
 .store-title span{color:#ff0000;}
-.typing-wrap{font-size:10px;font-weight:500;color:#aaa;height:14px;margin-top:2px;letter-spacing:0.3px;overflow:hidden;white-space:nowrap;}
-.typing-wrap span{color:#fff;}
-.cursor{display:inline-block;width:2px;height:10px;background:#ff0000;margin-left:3px;animation:blink 0.8s infinite;vertical-align:middle;}
+
+/* WELCOME TYPING - YATA LOKUWATA */
+.welcome-bar{width:100%;background:linear-gradient(90deg, #0a0a0a, #1a1a1a, #0a0a0a);border-bottom:1.5px solid #222;padding:10px 15px;text-align:center;min-height:38px;display:flex;align-items:center;justify-content:center;}
+.typing-text{font-size:15px;font-weight:700;letter-spacing:0.5px;color:#fff;}
+.typing-text span#typing{color:#ffcc00;}
+.cursor{display:inline-block;width:3px;height:16px;background:#ff0000;margin-left:5px;animation:blink 0.8s infinite;vertical-align:middle;}
 @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
 
 .banner{width:100%;max-width:700px;margin:0 auto;position:relative;overflow:hidden;height:230px;background:#000;}
@@ -45,7 +46,7 @@ body{background:#000000;color:#fff;min-height:100vh;}
 .game-card img{width:100%;height:100px;object-fit:cover;border-radius:12px;margin-bottom:8px;background:#000;border:1px solid #222;}
 .topup-btn{width:100%;background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px rgba(255,0,0,0.3);}
 .footer{text-align:center;padding:25px 10px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
-@media(max-width:400px){.grid{grid-template-columns:repeat(2, 1fr);}}
+@media(max-width:400px){.grid{grid-template-columns:repeat(2, 1fr);}.typing-text{font-size:13px;}}
 </style>
 </head>
 <body>
@@ -56,12 +57,13 @@ body{background:#000000;color:#fff;min-height:100vh;}
 <div class="logo-icon">
 <img src="3ec4791e-5aa7-496d-9de4-083e6188c99d.jpeg" alt="LOGO">
 </div>
-<div class="store-title-wrap">
 <div class="store-title">LAKIYA <span>STORE</span></div>
-<div class="typing-wrap"><span id="typing"></span><span class="cursor"></span></div>
-</div>
 </div>
 <div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;flex-shrink:0;">FAST DELIVERY</div>
+</div>
+
+<div class="welcome-bar">
+<div class="typing-text"><span id="typing"></span><span class="cursor"></span></div>
 </div>
 
 <div class="banner" id="bannerSlider">
@@ -83,7 +85,6 @@ body{background:#000000;color:#fff;min-height:100vh;}
 </div>
 
 <script>
-// GAMES
 const games = [
 { name: "Free Fire SG", img: "freefire.jpg", file: "freefire-sg.html" },
 { name: "Blood Strike", img: "bloodstrike.jpg", file: "bloodstrike.html" },
@@ -97,7 +98,6 @@ games.forEach(g=>{
 grid.innerHTML += `<div class="game-card"><div class="game-name">${g.name}</div><img src="${g.img}" alt="${g.name}"><button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button></div>`;
 });
 
-// SLIDER
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots');
@@ -118,8 +118,8 @@ function showSlide(index){
 }
 setInterval(()=>{ let next = (currentSlide + 1) % slides.length; showSlide(next); }, 3000);
 
-// TYPING EFFECT - LAKIYA STORE YATA
-const texts = ["Welcome to LAKIYA STORE", "Fast & Secure Top Up", "Instant Delivery 24/7", "Trusted in Sri Lanka"];
+// TYPING EFFECT - LOKU AKURU
+const texts = ["Welcome to LAKIYA STORE ❤️", "Fast & Secure Top Up in Sri Lanka", "Instant Delivery 24/7 - LAKIYA STORE", "Trusted & Best Top Up Service"];
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -134,15 +134,14 @@ function typeEffect(){
     typingEl.textContent = currentText.substring(0, charIndex + 1);
     charIndex++;
   }
-
-  let speed = isDeleting? 40 : 80;
+  let speed = isDeleting? 35 : 70;
   if(!isDeleting && charIndex === currentText.length){
-    speed = 1500;
+    speed = 1800;
     isDeleting = true;
   } else if(isDeleting && charIndex === 0){
     isDeleting = false;
     textIndex = (textIndex + 1) % texts.length;
-    speed = 500;
+    speed = 400;
   }
   setTimeout(typeEffect, speed);
 }
