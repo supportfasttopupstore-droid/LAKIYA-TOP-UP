@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAKIYA STORE | Official Top Up</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#000000;color:#fff;min-height:100vh;}
+
+/* HEADER */
+.header{width:100%;background:#000;padding:0;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#000;border-bottom:2px solid #1a1a1a;}
+.logo-left{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:48px;height:48px;background:linear-gradient(135deg, #ff0000, #990000);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;box-shadow:0 0 15px rgba(255,0,0,0.5);}
+.store-title{line-height:1;}
+.store-title .lakiya{font-size:22px;font-weight:900;letter-spacing:1px;color:#fff;}
+.store-title .lakiya span{color:#ff0000;}
+.store-title .store{font-size:22px;font-weight:900;letter-spacing:2px;color:#ff0000;margin-top:-4px;}
+
+.banner{width:100%;max-width:700px;margin:0 auto;position:relative;}
+.banner img{width:100%;height:230px;object-fit:cover;display:block;}
+.banner::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top, #000, transparent);}
+
+.contact-strip{background:#111;border-top:1px solid #222;border-bottom:1px solid #222;padding:8px;text-align:center;font-size:12px;font-weight:600;color:#ccc;}
+.contact-strip span{color:#25D366;}
+
+.container{max-width:700px;margin:0 auto;padding:15px 12px;}
+.main-title{text-align:center;font-size:22px;font-weight:800;margin:20px 0;color:#fff;letter-spacing:0.5px;}
+.main-title span{color:#ff0000;}
+
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;}
+.game-card{background:#111111;border:1.5px solid #222222;border-radius:16px;padding:8px 8px 10px 8px;text-align:center;transition:0.2s;position:relative;overflow:hidden;}
+.game-card:hover{border-color:#ff0000;transform:translateY(-3px);box-shadow:0 5px 20px rgba(255,0,0,0.2);}
+.game-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg, #ff0000, #990000);opacity:0;transition:0.2s;}
+.game-card:hover::before{opacity:1;}
+.game-name{font-size:11px;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:center;line-height:1.2;margin-bottom:6px;color:#fff;}
+.game-card img{width:100%;height:100px;object-fit:cover;border-radius:12px;margin-bottom:8px;background:#000;border:1px solid #222;}
+.topup-btn{width:100%;background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;letter-spacing:0.5px;box-shadow:0 3px 12px rgba(255,0,0,0.3);transition:0.2s;}
+.topup-btn:hover{background:linear-gradient(90deg, #ff2222, #ff0000);transform:scale(1.05);box-shadow:0 5px 18px rgba(255,0,0,0.5);}
+
+@media(max-width:400px){
+.grid{grid-template-columns:repeat(2, 1fr);}
+.game-name{font-size:12px;}
+}
+
+.footer{text-align:center;padding:25px 10px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="top-bar">
+<div class="logo-left">
+<div class="logo-icon">L</div>
+<div class="store-title">
+<div class="lakiya">LAKIYA <span>STORE</span></div>
+<div class="store">STORE</div>
+</div>
+</div>
+<div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;">FAST DELIVERY</div>
+</div>
+
+<div class="banner">
+<img src="banner.jpg" alt="LAKIYA STORE" onerror="this.src='https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&q=80'">
+</div>
+<div class="contact-strip"> <span>●</span> CONTACT US (WhatsApp) : 077 8373 325 | INSTANT TOP UP</div>
+</div>
+
+<div class="container">
+<div class="main-title">Select your <span>Game</span> to Top up</div>
+<div class="grid" id="gameGrid"></div>
+<div class="footer">© 2026 LAKIYA STORE - All Rights Reserved<br>Fast & Secure Gaming Top Up in Sri Lanka</div>
+</div>
+
+<script>
+// GAME LIST - Ubaata one vidiyata add karanna puluwan
+// img = oya danna photo eke nama, file = click karama yana file eka
+
+const games = [
+{ name: "Free Fire SG", img: "freefire.jpg", file: "freefire-sg.html" },
+{ name: "Free Fire SG Level Up", img: "levelup.jpg", file: "freefire-levelup.html" },
+{ name: "Blood Strike", img: "bloodstrike.jpg", file: "bloodstrike.html" },
+{ name: "Mobile Legends", img: "mlbb.jpg", file: "mobile-legends.html" },
+{ name: "PUBG Mobile", img: "pubg.jpg", file: "pubg.html" },
+{ name: "Farlight 84", img: "farlight.jpg", file: "farlight.html" },
+{ name: "Valorant SG", img: "valorant.jpg", file: "valorant.html" },
+{ name: "Delta Force", img: "delta.jpg", file: "deltaforce.html" },
+{ name: "Call of Duty", img: "cod.jpg", file: "cod.html" },
+];
+
+const grid = document.getElementById('gameGrid');
+games.forEach(g=>{
+grid.innerHTML += `
+<div class="game-card">
+<div class="game-name">${g.name}</div>
+<img src="${g.img}" alt="${g.name}" onerror="this.src='https://via.placeholder.com/200x200/111111/ff0000?text=${encodeURIComponent(g.name)}'">
+<button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button>
+</div>
+`;
+});
+</script>
+
+</body>
+</html>
