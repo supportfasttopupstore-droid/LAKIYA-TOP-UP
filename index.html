@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LAKIYA STORE | Official Top Up</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{background:#000000;color:#fff;min-height:100vh;}
@@ -15,64 +16,48 @@ body{background:#000000;color:#fff;min-height:100vh;}
 .logo-icon img{width:100%;height:100%;object-fit:cover;display:block;}
 .store-title{font-size:22px;font-weight:900;letter-spacing:0.5px;color:#fff;line-height:1;}
 .store-title span{color:#ff0000;}
-.welcome-bar{width:100%;background:linear-gradient(90deg, #0a0a0a, #1a1a1a, #0a0a0a);border-bottom:1.5px solid #222;padding:10px 15px;text-align:center;min-height:38px;display:flex;align-items:center;justify-content:center;}
+
+.welcome-bar{width:100%;background:linear-gradient(90deg,#0a0a0a,#1a1a1a,#0a0a0a);border-bottom:1.5px solid #222;padding:10px 15px;text-align:center;min-height:38px;display:flex;align-items:center;justify-content:center;}
 .typing-text{font-size:15px;font-weight:700;letter-spacing:0.5px;color:#fff;}
 .typing-text span#typing{color:#ffcc00;}
 .cursor{display:inline-block;width:3px;height:16px;background:#ff0000;margin-left:5px;animation:blink 0.8s infinite;vertical-align:middle;}
 @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+
 .banner{width:100%;max-width:700px;margin:0 auto;position:relative;overflow:hidden;height:230px;background:#000;}
 .slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity 0.8s ease-in-out;pointer-events:none;}
 .slide.active{opacity:1;pointer-events:auto;}
 .slide img{width:100%;height:100%;object-fit:cover;display:block;background:#000;}
-.banner::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top, #000, transparent);z-index:1;}
+.banner::after{content:"";position:absolute;bottom:0;left:0;width:100%;height:80px;background:linear-gradient(to top,#000,transparent);z-index:1;}
 .dots{position:absolute;bottom:15px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:2;}
 .dot{width:8px;height:8px;background:rgba(255,255,255,0.4);border-radius:50%;transition:0.3s;cursor:pointer;}
 .dot.active{background:#ff0000;width:20px;border-radius:10px;}
+
 .contact-strip{background:#111;border-top:1px solid #222;border-bottom:1px solid #222;padding:8px;text-align:center;font-size:12px;font-weight:600;color:#ccc;}
 .contact-strip a{color:#4fc3f7;text-decoration:none;}
+
 .container{max-width:700px;margin:0 auto;padding:15px 12px;}
 .main-title{text-align:center;font-size:22px;font-weight:800;margin:20px 0;color:#fff;}
 .main-title span{color:#ff0000;}
-.grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;}
-.game-card{background:#111111;border:1.5px solid #222222;border-radius:16px;padding:8px 8px 10px 8px;text-align:center;transition:0.2s;}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.game-card{background:#111;border:1.5px solid #222;border-radius:16px;padding:8px 8px 10px;text-align:center;transition:0.2s;}
 .game-card:hover{border-color:#ff0000;transform:translateY(-3px);box-shadow:0 5px 20px rgba(255,0,0,0.2);}
 .game-name{font-size:11px;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:center;line-height:1.2;margin-bottom:6px;color:#fff;}
 .game-card img{width:100%;height:100px;object-fit:cover;border-radius:12px;margin-bottom:8px;background:#000;border:1px solid #222;}
-.topup-btn{width:100%;background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px rgba(255,0,0,0.3);}
-.footer{text-align:center;padding:25px 10px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
-@media(max-width:400px){.grid{grid-template-columns:repeat(2, 1fr);}.typing-text{font-size:13px;}}
-/* ===== LOGIN ALERT - ALUTHEN ADD KALA ===== */
-#loginOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px);z-index:9999;display:flex;align-items:center;justify-content:center;animation:fadeIn 0.3s;}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.login-box{width:90%;max-width:340px;background:#111;border:2px solid #ff0000;border-radius:20px;padding:20px 18px;text-align:center;box-shadow:0 0 30px rgba(255,0,0,0.4);}
-.login-logo{width:60px;height:60px;margin:0 auto 12px auto;background:#000;border-radius:14px;overflow:hidden;border:1.5px solid #222;}
-.login-logo img{width:100%;height:100%;object-fit:cover;}
-.login-box h2{font-size:20px;font-weight:900;margin-bottom:5px;}
-.login-box h2 span{color:#ff0000;}
-.login-box p{font-size:12px;color:#aaa;margin-bottom:15px;}
-.login-input{width:100%;background:#1a1a1a;border:1.5px solid #333;border-radius:12px;padding:12px 14px;color:#fff;font-size:14px;outline:none;margin-bottom:10px;text-align:center;}
-.login-input:focus{border-color:#ff0000;}
-.login-btn{width:100%;background:linear-gradient(90deg,#ff0000,#cc0000);border:none;padding:12px 0;border-radius:25px;color:#fff;font-weight:900;font-size:14px;cursor:pointer;margin-top:8px;box-shadow:0 5px 20px rgba(255,0,0,0.4);}
-.login-btn:active{transform:scale(0.97);}
-.skip-btn{margin-top:10px;background:none;border:none;color:#777;font-size:11px;font-weight:700;cursor:pointer;text-decoration:underline;}
+.topup-btn{width:100%;background:linear-gradient(90deg,#ff0000,#cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px rgba(255,0,0,0.3);}
+.footer{text-align:center;padding:25px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
+
+@media(max-width:400px){
+.grid{grid-template-columns:repeat(2,1fr);}
+.typing-text{font-size:13px;}
+}
 </style>
 </head>
+
 <body>
 
-<!-- ===== LOGIN ALERT POPUP ===== -->
-<div id="loginOverlay">
-  <div class="login-box">
-    <div class="login-logo"><img src="3ec4791e-5aa7-496d-9de4-083e6188c99d.jpeg"></div>
-    <h2>LAKIYA <span>STORE</span></h2>
-    <p>Please Login to Continue ❤️</p>
-    <input type="text" id="loginUser" class="login-input" placeholder="Username / Phone">
-    <input type="password" id="loginPass" class="login-input" placeholder="Password">
-    <button class="login-btn" onclick="doLogin()">LOGIN</button>
-    <button class="skip-btn" onclick="closeLogin()">Skip for now</button>
-  </div>
-</div>
-
 <div class="header">
+
 <div class="top-bar">
 <div class="logo-left">
 <div class="logo-icon">
@@ -80,7 +65,10 @@ body{background:#000000;color:#fff;min-height:100vh;}
 </div>
 <div class="store-title">LAKIYA <span>STORE</span></div>
 </div>
-<div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;flex-shrink:0;">FAST DELIVERY</div>
+
+<div style="background:#ff0000;color:#fff;font-size:10px;font-weight:800;padding:5px 10px;border-radius:20px;flex-shrink:0;">
+FAST DELIVERY
+</div>
 </div>
 
 <div class="welcome-bar">
@@ -96,7 +84,12 @@ body{background:#000000;color:#fff;min-height:100vh;}
 <div class="dots" id="dots"></div>
 </div>
 
-<div class="contact-strip"> CONTACT US (WhatsApp) : <a href="https://wa.me/94778373325">077 8373 325</a> | INSTANT TOP UP</div>
+<div class="contact-strip">
+CONTACT US (WhatsApp) :
+<a href="https://wa.me/94778373325">077 8373 325</a>
+| INSTANT TOP UP
+</div>
+
 </div>
 
 <div class="container">
@@ -106,86 +99,120 @@ body{background:#000000;color:#fff;min-height:100vh;}
 </div>
 
 <script>
+/* GAME LIST */
 const games = [
 { name: "Free Fire SG", img: "4232e01e-6fd8-41ca-80d3-bd771804e26b.jpeg", file: "freefire-sg.html" },
 { name: "Blood Strike", img: "14ebaa08-628e-45d8-b5f3-57cde9450ed4.jpeg", file: "bloodstrike.html" },
 { name: "Mobile Legends", img: "0b550e8d-c7f4-4e3c-abb0-f571f494948d.jpeg", file: "mobile-legends.html" },
 { name: "PUBG Mobile", img: "82a99d7e-69c5-4042-96bb-ff8a98d79fdd.jpeg", file: "pubg.html" },
 { name: "Valorant SG", img: "IMG_4004.webp", file: "valorant.html" },
-{ name: "Delta Force", img: "IMG_3997.webp", file: "deltaforce.html" },
+{ name: "Delta Force", img: "IMG_3997.webp", file: "deltaforce.html" }
 ];
+
+/* DISPLAY GAMES */
 const grid = document.getElementById('gameGrid');
-games.forEach(g=>{
-grid.innerHTML += `<div class="game-card"><div class="game-name">${g.name}</div><img src="${g.img}" alt="${g.name}"><button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button></div>`;
+
+games.forEach(g => {
+  grid.innerHTML += `
+    <div class="game-card">
+      <div class="game-name">${g.name}</div>
+      <img src="${g.img}" alt="${g.name}">
+      <button class="topup-btn"
+        onclick="window.location.href='${g.file}'">
+        Top Up
+      </button>
+    </div>`;
 });
 
+/* BANNER SLIDER */
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('dots');
+
 slides.forEach((_, i) => {
   const dot = document.createElement('div');
   dot.classList.add('dot');
-  if(i===0) dot.classList.add('active');
+
+  if (i === 0) dot.classList.add('active');
+
   dot.onclick = () => showSlide(i);
   dotsContainer.appendChild(dot);
 });
+
 const dots = document.querySelectorAll('.dot');
-function showSlide(index){
+
+function showSlide(index) {
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
+
   currentSlide = index;
+
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
 }
-setInterval(()=>{ let next = (currentSlide + 1) % slides.length; showSlide(next); }, 3000);
 
-const texts = ["Welcome to LAKIYA STORE ❤️", "Fast & Secure Top Up in Sri Lanka", "Instant Delivery 24/7 - LAKIYA STORE", "Trusted & Best Top Up Service"];
+setInterval(() => {
+  const next = (currentSlide + 1) % slides.length;
+  showSlide(next);
+}, 3000);
+
+/* TYPING EFFECT */
+const texts = [
+  "Welcome to LAKIYA STORE ❤️",
+  "Fast & Secure Top Up in Sri Lanka",
+  "Instant Delivery 24/7 - LAKIYA STORE",
+  "Trusted & Best Top Up Service"
+];
+
 let textIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 const typingEl = document.getElementById('typing');
-function typeEffect(){
-  let currentText = texts[textIndex];
-  if(isDeleting){
+
+function typeEffect() {
+  const currentText = texts[textIndex];
+
+  if (isDeleting) {
     typingEl.textContent = currentText.substring(0, charIndex - 1);
     charIndex--;
   } else {
     typingEl.textContent = currentText.substring(0, charIndex + 1);
     charIndex++;
   }
-  let speed = isDeleting? 35 : 70;
-  if(!isDeleting && charIndex === currentText.length){
+
+  let speed = isDeleting ? 35 : 70;
+
+  if (!isDeleting && charIndex === currentText.length) {
     speed = 1800;
     isDeleting = true;
-  } else if(isDeleting && charIndex === 0){
+  } else if (isDeleting && charIndex === 0) {
     isDeleting = false;
     textIndex = (textIndex + 1) % texts.length;
     speed = 400;
   }
+
   setTimeout(typeEffect, speed);
 }
-typeEffect();
 
-// ===== LOGIN ALERT LOGIC - ALUTHEN ADD KALA =====
-function doLogin(){
-  const u = document.getElementById('loginUser').value.trim();
-  const p = document.getElementById('loginPass').value.trim();
-  if(!u ||!p){ alert("Username & Password danna bn!"); return; }
-  // login save karala close karanawa - backend nathnam mehema
-  localStorage.setItem('lakiya_login', JSON.stringify({user:u, time:Date.now()}));
-  closeLogin();
-  alert("Welcome " + u + " ❤️ - LAKIYA STORE");
-}
-function closeLogin(){
-  document.getElementById('loginOverlay').style.display='none';
-}
-// Page ekata awa gaman login eka pennanawa - refresh unama nawath enna one nam localStorage check eka ain karanna
-window.onload = function(){
-  // Already login karala nam auto hide wenawa - one nam me line 2 comment karanna
-  if(localStorage.getItem('lakiya_login')){
-    // document.getElementById('loginOverlay').style.display='none';
+/* TELEGRAM VISITOR NOTIFICATION
+   Requires the Netlify Function shown below.
+*/
+async function notifyTelegramVisitor() {
+  try {
+    const response = await fetch('/.netlify/functions/visitor', {
+      method: 'POST'
+    });
+
+    if (!response.ok) {
+      console.error('Visitor notification failed.');
+    }
+  } catch (error) {
+    console.error('Visitor notification unavailable.');
   }
 }
+
+notifyTelegramVisitor();
+typeEffect();
 </script>
 
 </body>
