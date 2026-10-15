@@ -24,6 +24,7 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 .id-label{color:#ff0000;font-size:17px;font-weight:800;margin-bottom:12px;}
 .id-row{display:flex;gap:8px;margin-bottom:10px;}
 .id-row input{flex:1;background:#1a1a1a;border:1.5px solid #333;border-radius:12px;padding:13px 15px;color:#fff;font-size:14px;outline:none;text-align:center;}
+.id-row input:focus{border-color:#ff0000;}
 .section-title{font-size:15px;font-weight:800;color:#fff;margin:22px 0 12px 5px;}
 .section-title span{color:#ff0000;}
 .grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:12px;}
@@ -52,7 +53,7 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 
 <div class="container">
 <div class="game-header">
-<div class="game-logo"><img src="freefire-icon.jpg"></div>
+<div class="game-logo"><img src="4232e01e-6fd8-41ca-80d3-bd771804e26b.jpeg" onerror="this.src='https://i.postimg.cc/6qJvTz3p/ff-icon.png'"></div>
 <div class="game-info"><h1>Free Fire SG</h1><p>✔ Safety guarantee</p><p>⚡ Instant Delivery</p></div>
 </div>
 
@@ -77,52 +78,93 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 <div class="checkout" id="checkout"><div class="total">TOTAL<br><b id="tPrice">Rs. 0</b><br><span id="tCount" style="font-size:11px;">0 items</span></div><button class="next-btn" onclick="goPay()">NEXT →</button></div>
 
 <script>
-// ================== OYA PHOTO FILE NAME TIKA METHANA DANNA ==================
-// images/ folder eke danna, nathnam "./" kiyala thiyenna
-
-const membership = [
-  ["WEEKLY LITE MEMBERSHIP", 150, "weekly_lite.jpg"],
-  ["WEEKLY MEMBERSHIP", 595, "weekly.jpg"],
-  ["MONTHLY MEMBERSHIP", 2780, "monthly.jpg"],
-  ["VIP MEMBERSHIP", 3375, "vip.jpg"],
-  ["VIP MAX MEMBERSHIP", 10125, "vip_max.jpg"],
-  ["S VIP MEMBERSHIP", 5160, "s_vip.jpg"],
-  ["S VIP PLUS MEMBERSHIP", 5770, "s_vip_plus.jpg"]
-];
-const diamondPack = [
-  ["25 💎", 150, "25_diamond.jpg"],
-  ["50 💎", 300, "50_diamond.jpg"],
-  ["100 💎", 350, "100_diamond.jpg"],
-  ["310 💎", 960, "310_diamond.jpg"],
-  ["520 💎", 1730, "520_diamond.jpg"],
-  ["1060 💎", 3510, "1060_diamond.jpg"],
-  ["2180 💎", 6590, "2180_diamond.jpg"],
-  ["5600 💎", 17060, "5600_diamond.jpg"],
-  ["11500 💎", 34090, "11500_diamond.jpg"],
-  ["23000 💎", 68180, "23000_diamond.jpg"],
-  ["46000 💎", 136360, "46000_diamond.jpg"]
-];
-const levelUp = [
-  ["LEVEL 6", 150, "level_6.jpg"],
-  ["LEVEL 10", 260, "level_10.jpg"],
-  ["LEVEL 15", 260, "level_15.jpg"],
-  ["LEVEL 20", 260, "level_20.jpg"],
-  ["LEVEL 25", 260, "level_25.jpg"],
-  ["LEVEL 30", 400, "level_30.jpg"]
-];
-const evo = [
-  ["EVO ACCESS — 3 DAY", 225, "evo_3day.jpg"],
-  ["EVO ACCESS — 7 DAY", 295, "evo_7day.jpg"],
-  ["EVO ACCESS — 30 DAY", 870, "evo_30day.jpg"]
-];
-// ==========================================================================
-
+// PHOTO FILE NAME - OYA GAVA THIYENA PHOTO WALIN MEWA MARU KARANNA
+// Same folder eke thiyenna one
 let allPacks = []; let cart = {}; let idCounter=0;
 
-function render(list, gridId){
-  const grid = document.getElementById(gridId);
-  list.forEach(arr=>{
-    idCounter++;
-    const name = arr[0]; const price = arr[1]; const file = arr[2];
-    const p = {_id:idCounter, name:name, price:price, file:file};
-    allPacks.push
+function addPack(gridId, name, price, fileName){
+  idCounter++;
+  const p = {_id:idCounter, name:name, price:price, file:fileName};
+  allPacks.push(p);
+  document.getElementById(gridId).innerHTML += `
+  <div class="pack" id="pack-${p._id}">
+    <img class="pack-img" src="${p.file}" onerror="this.onerror=null; this.src='https://via.placeholder.com/100x100/111111/ff0000?text=${encodeURIComponent(name.substring(0,10))}'">
+    <div class="pack-name">${name}</div>
+    <div class="pack-price">Rs. <span>${price}</span></div>
+    <div class="qty">
+      <button class="qbtn" onclick="chg(${p._id}, -1)">−</button>
+      <div class="qnum" id="q-${p._id}">0</div>
+      <button class="qbtn" onclick="chg(${p._id}, 1)">+</button>
+    </div>
+  </div>`;
+}
+
+// ====== MEMBERSHIP - 7 PACKS ======
+addPack('gridMembership','WEEKLY LITE MEMBERSHIP',150,'weekly_lite.jpg');
+addPack('gridMembership','WEEKLY MEMBERSHIP',595,'weekly.jpg');
+addPack('gridMembership','MONTHLY MEMBERSHIP',2780,'monthly.jpg');
+addPack('gridMembership','VIP MEMBERSHIP',3375,'vip.jpg');
+addPack('gridMembership','VIP MAX MEMBERSHIP',10125,'vip_max.jpg');
+addPack('gridMembership','S VIP MEMBERSHIP',5160,'s_vip.jpg');
+addPack('gridMembership','S VIP PLUS MEMBERSHIP',5770,'s_vip_plus.jpg');
+
+// ====== DIAMOND PACK - 11 PACKS ======
+addPack('gridDiamond','25 💎',150,'25_diamond.jpg');
+addPack('gridDiamond','50 💎',300,'50_diamond.jpg');
+addPack('gridDiamond','100 💎',350,'100_diamond.jpg');
+addPack('gridDiamond','310 💎',960,'310_diamond.jpg');
+addPack('gridDiamond','520 💎',1730,'520_diamond.jpg');
+addPack('gridDiamond','1060 💎',3510,'1060_diamond.jpg');
+addPack('gridDiamond','2180 💎',6590,'2180_diamond.jpg');
+addPack('gridDiamond','5600 💎',17060,'5600_diamond.jpg');
+addPack('gridDiamond','11500 💎',34090,'11500_diamond.jpg');
+addPack('gridDiamond','23000 💎',68180,'23000_diamond.jpg');
+addPack('gridDiamond','46000 💎',136360,'46000_diamond.jpg');
+
+// ====== LEVEL UP - 6 PACKS ======
+addPack('gridLevel','LEVEL 6',150,'level_6.jpg');
+addPack('gridLevel','LEVEL 10',260,'level_10.jpg');
+addPack('gridLevel','LEVEL 15',260,'level_15.jpg');
+addPack('gridLevel','LEVEL 20',260,'level_20.jpg');
+addPack('gridLevel','LEVEL 25',260,'level_25.jpg');
+addPack('gridLevel','LEVEL 30',400,'level_30.jpg');
+
+// ====== EVO ACCESS - 3 PACKS ======
+addPack('gridEvo','EVO ACCESS — 3 DAY',225,'evo_3day.jpg');
+addPack('gridEvo','EVO ACCESS — 7 DAY',295,'evo_7day.jpg');
+addPack('gridEvo','EVO ACCESS — 30 DAY',870,'evo_30day.jpg');
+
+function chg(id, d){
+  cart[id] = (cart[id]||0) + d;
+  if(cart[id] < 0) cart[id]=0;
+  if(cart[id]==0) delete cart[id];
+  document.getElementById(`q-${id}`).textContent = cart[id] || 0;
+  const el = document.getElementById(`pack-${id}`);
+  if(cart[id]) el.classList.add('selected'); else el.classList.remove('selected');
+  calc();
+}
+function calc(){
+  let total=0, count=0;
+  for(let id in cart){ let p = allPacks.find(x=>x._id==id); total += p.price * cart[id]; count += cart[id]; }
+  document.getElementById('tPrice').textContent = "Rs. " + total;
+  document.getElementById('tCount').textContent = count + " items selected";
+  const co = document.getElementById('checkout'); if(count>0) co.classList.add('show'); else co.classList.remove('show');
+}
+function goPay(){
+  const uid = document.getElementById('uid').value.trim();
+  if(!uid){ alert("User ID eka danna bn!"); return; }
+  let items=[];
+  for(let id in cart){ let p=allPacks.find(x=>x._id==id); items.push({name:p.name, price:p.price, qty:cart[id], total:p.price*cart[id]}); }
+  if(items.length==0){ alert("Pack ekak thoranna bn!"); return; }
+  localStorage.setItem('lakiya_order', JSON.stringify({
+    game:"Free Fire SG",
+    userId:uid,
+    gameName:"",
+    items:items,
+    totalText: document.getElementById('tPrice').textContent
+  }));
+  window.location.href="payment.html";
+}
+</script>
+</body>
+</html>
