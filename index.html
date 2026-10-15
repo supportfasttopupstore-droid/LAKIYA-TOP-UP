@@ -41,41 +41,33 @@ body{background:#000000;color:#fff;min-height:100vh;}
 .topup-btn{width:100%;background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px rgba(255,0,0,0.3);}
 .footer{text-align:center;padding:25px 10px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
 @media(max-width:400px){.grid{grid-template-columns:repeat(2, 1fr);}.typing-text{font-size:13px;}}
-/* ===== FULLSCREEN WELCOME + LOGIN - ALUTHEN ===== */
-#welcomeOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.welcome-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.4;filter:blur(2px);}
-.welcome-dark{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.95));}
-.welcome-content{position:relative;z-index:2;text-align:center;padding:20px;width:92%;max-width:360px;}
-.welcome-logo{width:85px;height:85px;margin:0 auto 18px auto;background:#111;border-radius:20px;overflow:hidden;border:2px solid #ff0000;box-shadow:0 0 30px rgba(255,0,0,0.6);}
+/* ===== BLACK RED THEME POPUP - LASSANA ===== */
+#welcomeOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at top, #1a0000 0%, #000 65%);z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.welcome-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.22;filter:blur(3px);}
+.welcome-dark{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 70%, #000 100%);}
+.welcome-content{position:relative;z-index:2;text-align:center;padding:24px;width:92%;max-width:360px;background:linear-gradient(145deg, #0f0f0f, #1a0000);border:2px solid #ff0000;border-radius:24px;box-shadow:0 0 40px rgba(255,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05);}
+.welcome-logo{width:85px;height:85px;margin:0 auto 18px auto;background:#000;border-radius:20px;overflow:hidden;border:2px solid #ff0000;box-shadow:0 0 25px rgba(255,0,0,0.6);}
 .welcome-logo img{width:100%;height:100%;object-fit:cover;}
-.welcome-typing{font-size:28px;font-weight:900;color:#fff;line-height:1.15;min-height:90px;text-shadow:0 3px 20px rgba(0,0,0,0.9);}
-.welcome-typing span{color:#ff0000;}
-.welcome-sub{font-size:12px;color:#bbb;margin-top:12px;letter-spacing:0.5px;}
-/* Podiyata login button - customer ta pena widiyata */
-.login-area{margin-top:22px;background:rgba(17,17,17,0.85);border:1.5px solid #222;border-radius:16px;padding:14px;}
-.login-input-small{width:100%;background:#1a1a1a;border:1.5px solid #333;border-radius:10px;padding:10px 12px;color:#fff;font-size:13px;outline:none;margin-bottom:8px;text-align:center;}
-.login-input-small:focus{border-color:#ff0000;}
-.login-btn-small{width:100%;background:linear-gradient(90deg,#ff0000,#cc0000);border:none;padding:11px 0;border-radius:22px;color:#fff;font-weight:800;font-size:13px;letter-spacing:0.5px;cursor:pointer;box-shadow:0 4px 18px rgba(255,0,0,0.4);transition:0.2s;}
-.login-btn-small:active{transform:scale(0.97);}
-.skip-link{margin-top:10px;display:inline-block;color:#666;font-size:10px;text-decoration:underline;cursor:pointer;}
+.welcome-typing{font-size:29px;font-weight:900;color:#fff;line-height:1.15;min-height:95px;text-shadow:0 0 20px rgba(255,0,0,0.6);letter-spacing:0.5px;}
+.welcome-typing span{color:#ff0000;text-shadow:0 0 15px rgba(255,0,0,0.8);}
+.welcome-sub{font-size:12px;color:#999;margin-top:14px;margin-bottom:22px;letter-spacing:0.8px;}
+.login-btn-big{width:100%;background:linear-gradient(90deg,#ff0000,#900000);border:none;padding:14px 0;border-radius:28px;color:#fff;font-weight:900;font-size:15px;letter-spacing:1.2px;cursor:pointer;box-shadow:0 8px 30px rgba(255,0,0,0.6);animation:pulseRed 2s infinite;transition:0.2s;}
+.login-btn-big:active{transform:scale(0.96);}
+@keyframes pulseRed{0%{box-shadow:0 0 0 0 rgba(255,0,0,0.7)}70%{box-shadow:0 0 0 18px rgba(255,0,0,0)}100%{box-shadow:0 0 0 0 rgba(255,0,0,0)}}
+.small-note{margin-top:14px;font-size:9px;color:#555;letter-spacing:0.5px;}
 </style>
 </head>
 <body>
 
 <div id="welcomeOverlay">
-  <img class="welcome-bg" src="95543564-eda9-4b80-b990-3948dae52dec.jpeg" alt="Game BG">
+  <img class="welcome-bg" src="95543564-eda9-4b80-b990-3948dae52dec.jpeg" alt="BG">
   <div class="welcome-dark"></div>
   <div class="welcome-content">
     <div class="welcome-logo"><img src="3ec4791e-5aa7-496d-9de4-083e6188c99d.jpeg"></div>
-    <div class="welcome-typing"><span id="welcomeTyping"></span></div>
+    <div class="welcome-typing"><span id="welcomeTyping"></span><span class="cursor"></span></div>
     <div class="welcome-sub">Fast & Secure Top Up in Sri Lanka ❤️</div>
-
-    <div class="login-area">
-      <input type="text" id="loginUser" class="login-input-small" placeholder="Username / Phone">
-      <input type="password" id="loginPass" class="login-input-small" placeholder="Password">
-      <button class="login-btn-small" onclick="doLogin()">LOGIN - ENTER STORE</button>
-      <br><span class="skip-link" onclick="enterWithoutLogin()">Skip & Enter Store</span>
-    </div>
+    <button class="login-btn-big" onclick="doLoginEnter()">LOGIN</button>
+    <div class="small-note">© LAKIYA STORE - Instant Delivery 24/7</div>
   </div>
 </div>
 
@@ -106,10 +98,10 @@ body{background:#000000;color:#fff;min-height:100vh;}
 </div>
 
 <script>
-// ========= TELEGRAM CONFIG =========
+// ========= TELEGRAM - ALUTH TOKEN DANNNA, MEKA REVOKE KARALA =========
 const BOT_TOKEN = "8839700271:AAGfliScq0ycPvovpQ4wbTrzwjoGdqE_GqQ";
 const CHAT_ID = "8199335471";
-// ===================================
+// =====================================================================
 
 const games = [
 { name: "Free Fire SG", img: "4232e01e-6fd8-41ca-80d3-bd771804e26b.jpeg", file: "freefire-sg.html" },
@@ -120,81 +112,41 @@ const games = [
 { name: "Delta Force", img: "IMG_3997.webp", file: "deltaforce.html" },
 ];
 const grid = document.getElementById('gameGrid');
-games.forEach(g=>{
-grid.innerHTML += `<div class="game-card"><div class="game-name">${g.name}</div><img src="${g.img}" alt="${g.name}"><button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button></div>`;
-});
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.getElementById('dots');
-slides.forEach((_, i) => {
-  const dot = document.createElement('div');
-  dot.classList.add('dot');
-  if(i===0) dot.classList.add('active');
-  dot.onclick = () => showSlide(i);
-  dotsContainer.appendChild(dot);
-});
+games.forEach(g=>{ grid.innerHTML += `<div class="game-card"><div class="game-name">${g.name}</div><img src="${g.img}" alt="${g.name}"><button class="topup-btn" onclick="window.location.href='${g.file}'">Top Up</button></div>`; });
+let currentSlide = 0; const slides = document.querySelectorAll('.slide'); const dotsContainer = document.getElementById('dots');
+slides.forEach((_, i) => { const dot = document.createElement('div'); dot.classList.add('dot'); if(i===0) dot.classList.add('active'); dot.onclick = () => showSlide(i); dotsContainer.appendChild(dot); });
 const dots = document.querySelectorAll('.dot');
-function showSlide(index){
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = index;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-}
+function showSlide(index){ slides[currentSlide].classList.remove('active'); dots[currentSlide].classList.remove('active'); currentSlide = index; slides[currentSlide].classList.add('active'); dots[currentSlide].classList.add('active'); }
 setInterval(()=>{ let next = (currentSlide + 1) % slides.length; showSlide(next); }, 3000);
 const texts = ["Welcome to LAKIYA STORE ❤️", "Fast & Secure Top Up in Sri Lanka", "Instant Delivery 24/7 - LAKIYA STORE", "Trusted & Best Top Up Service"];
-let textIndex = 0;let charIndex = 0;let isDeleting = false;
-const typingEl = document.getElementById('typing');
-function typeEffect(){
-  let currentText = texts[textIndex];
-  if(isDeleting){typingEl.textContent = currentText.substring(0, charIndex - 1);charIndex--;}else{typingEl.textContent = currentText.substring(0, charIndex + 1);charIndex++;}
-  let speed = isDeleting? 35 : 70;
-  if(!isDeleting && charIndex === currentText.length){speed = 1800;isDeleting = true;}else if(isDeleting && charIndex === 0){isDeleting = false;textIndex = (textIndex + 1) % texts.length;speed = 400;}
-  setTimeout(typeEffect, speed);
-}
-typeEffect();
+let textIndex = 0;let charIndex = 0;let isDeleting = false; const typingEl = document.getElementById('typing');
+function typeEffect(){ let currentText = texts[textIndex]; if(isDeleting){typingEl.textContent = currentText.substring(0, charIndex - 1);charIndex--;}else{typingEl.textContent = currentText.substring(0, charIndex + 1);charIndex++;} let speed = isDeleting? 40 : 80; if(!isDeleting && charIndex === currentText.length){speed = 2000;isDeleting = true;}else if(isDeleting && charIndex === 0){isDeleting = false;textIndex = (textIndex + 1) % texts.length;speed = 500;} setTimeout(typeEffect, speed); } typeEffect();
 
-// WELCOME TYPING - LOKUWA
+// SLOW TYPING - LASSANA
 const welcomeFullText = "WELCOME TO LAKIYA STORE";
-let wIdx = 0;
-const wEl = document.getElementById('welcomeTyping');
+let wIdx = 0; const wEl = document.getElementById('welcomeTyping');
 function welcomeType(){
   if(wIdx <= welcomeFullText.length){
     let t = welcomeFullText.substring(0, wIdx);
-    if(t.length > 10){
-      wEl.innerHTML = t.substring(0,10) + "<br><span>" + t.substring(10) + "</span>";
-    } else {
-      wEl.innerHTML = t;
-    }
+    if(t.length > 10){ wEl.innerHTML = t.substring(0,10) + "<br><span>" + t.substring(10) + "</span>"; }
+    else { wEl.innerHTML = t; }
     wIdx++;
-    setTimeout(welcomeType, 80);
+    setTimeout(welcomeType, 140);
   }
 }
 welcomeType();
 
-function doLogin(){
-  const u = document.getElementById('loginUser').value.trim();
-  const p = document.getElementById('loginPass').value.trim();
-  if(!u ||!p){ alert("Username & Password danna bn!"); return; }
-  localStorage.setItem('lakiya_login', JSON.stringify({user:u, time:Date.now()}));
-  sendTelegramLogin(u);
-  closeWelcome();
-}
-
-function enterWithoutLogin(){
-  closeWelcome();
-}
-
-function closeWelcome(){
+function doLoginEnter(){
+  sendTelegramEnter();
   const ov = document.getElementById('welcomeOverlay');
-  ov.style.transition='0.5s'; ov.style.opacity='0'; ov.style.transform='scale(1.08)';
-  setTimeout(()=> ov.style.display='none', 500);
+  ov.style.transition='0.6s'; ov.style.opacity='0'; ov.style.transform='scale(1.1)';
+  setTimeout(()=> ov.style.display='none', 600);
 }
 
-function sendTelegramLogin(username){
-  if(BOT_TOKEN.includes("PUT_YOUR")) return;
+function sendTelegramEnter(){
+  if(BOT_TOKEN.includes("PUT_NEW")) return;
   const time = new Date().toLocaleString("en-LK", {timeZone:"Asia/Colombo"});
-  const msg = `🔔 *LAKIYA STORE LOGIN*\n\n👤 User: ${username}\n⏰ Time: ${time}\n✅ Entered via Welcome Screen`;
+  const msg = `🔔 *LAKIYA STORE - NEW VISITOR*\n\n✅ Action: Clicked LOGIN / ENTER\n⏰ Time: ${time}\n📱 Site: LAKIYA STORE Official\n👀 Someone entered the store!`;
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method:"POST",
     headers:{"Content-Type":"application/json"},
