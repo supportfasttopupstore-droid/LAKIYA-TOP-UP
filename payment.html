@@ -10,7 +10,6 @@ body{background:#000;color:#fff;padding-bottom:40px;}
 .top-bar{padding:14px 15px;background:#000;border-bottom:2px solid #1a1a1a;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10;}
 .store-title{font-size:18px;font-weight:900;} .store-title span{color:#ff0000;}
 .container{max-width:700px;margin:0 auto;padding:15px 12px;}
-
 .card{background:#0e0e0e;border:1.5px solid #222;border-radius:20px;padding:18px;margin-bottom:15px;}
 .title{color:#ff0000;font-weight:800;font-size:16px;margin-bottom:12px;}
 .row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1a1a1a;font-size:13px;}
@@ -18,25 +17,30 @@ body{background:#000;color:#fff;padding-bottom:40px;}
 .b{font-weight:700;color:#fff;}
 .total{font-size:22px;font-weight:900;text-align:right;margin-top:12px;}
 .total span{color:#ffcc00;}
-
 .ez-card{background:#fff;color:#000;border-radius:20px;padding:18px;text-align:center;}
 .ez-logo{width:120px;margin:0 auto 12px auto;}
 .ez-logo img{width:100%;}
 .ez-num{border:2.5px solid #ff0000;border-radius:30px;padding:10px;font-size:24px;font-weight:900;letter-spacing:1px;margin:10px 0;background:#fff;color:#000;}
 .ez-text{font-size:16px;font-weight:800;margin-top:10px;line-height:1.5;}
-.ez-sub{font-size:12px;font-weight:700;margin-top:6px;color:#333;}
 .ez-red{color:#ff0000;font-size:13px;font-weight:800;margin-top:10px;line-height:1.4;}
 .wa-num{display:inline-flex;align-items:center;gap:6px;border:2px solid #25D366;border-radius:20px;padding:6px 14px;font-weight:800;margin-top:10px;font-size:14px;}
-
 .input-box{background:#111;border:1.5px solid #333;border-radius:12px;padding:13px 15px;width:100%;color:#fff;outline:none;margin-top:8px;}
 .input-box:focus{border-color:#ff0000;}
 label{font-size:13px;color:#aaa;margin-top:15px;display:block;}
-
 .upload-box{border:2px dashed #333;border-radius:14px;padding:20px;text-align:center;margin-top:8px;cursor:pointer;background:#111;}
 .upload-box img{width:100%;max-height:220px;object-fit:contain;border-radius:10px;display:none;margin-top:10px;}
-
 .order-btn{width:100%;background:linear-gradient(90deg,#ff0000,#b80000);border:none;padding:16px;border-radius:14px;color:#fff;font-weight:900;font-size:16px;cursor:pointer;margin-top:20px;box-shadow:0 6px 20px rgba(255,0,0,0.4);}
 .order-btn:disabled{background:#333;box-shadow:none;}
+
+/* POPUP CSS - ALUTHEN ADDED */
+.popup-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;justify-content:center;align-items:center;z-index:999;padding:15px;}
+.popup-overlay.show{display:flex;}
+.popup-box{background:#111;border:2px solid #ff0000;border-radius:22px;padding:30px 20px;text-align:center;max-width:380px;width:100%;animation:popUp 0.4s ease;box-shadow:0 0 30px rgba(255,0,0,0.4);}
+@keyframes popUp{0%{transform:scale(0.5);opacity:0}100%{transform:scale(1);opacity:1}}
+.popup-icon{width:70px;height:70px;background:#00ff88;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:36px;margin:0 auto 15px auto;font-weight:900;color:#000;}
+.popup-title{font-size:20px;font-weight:900;color:#fff;margin-bottom:8px;}
+.popup-msg{font-size:13px;color:#aaa;line-height:1.5;margin-bottom:18px;}
+.popup-ok{width:100%;background:linear-gradient(90deg,#ff0000,#cc0000);border:none;padding:12px;border-radius:25px;color:#fff;font-weight:900;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -44,49 +48,49 @@ label{font-size:13px;color:#aaa;margin-top:15px;display:block;}
 <div class="top-bar"><a href="javascript:history.back()" style="color:#fff;text-decoration:none;">← BACK</a><div class="store-title" style="margin-left:10px;">LAKIYA <span>STORE</span></div></div>
 
 <div class="container">
-
-<!-- 1. PAYMENT DETAILS FROM YOUR PHOTO -->
 <div class="ez-card">
 <div style="font-weight:900;color:#ff0000;font-size:14px;">Ez CASH NUMBERS</div>
-<div class="ez-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Ez_Cash_logo.png/640px-Ez_Cash_logo.png" onerror="this.style.display='none'"><div style="background:#ffeb00;border-radius:18px;padding:10px;font-weight:900;font-size:26px;">eZ Cash</div></div>
+<div class="ez-logo"><div style="background:#ffeb00;border-radius:18px;padding:10px;font-weight:900;font-size:26px;">eZ Cash</div></div>
 <div class="ez-num">076 026 9806</div>
 <div class="ez-text">Ez cash හරහා මුදල් ගෙවීමේදී<br>අමතර රු.20ක මුදලක් දැමීම අනිවාර්ය වේ.</div>
 <div class="ez-red">රිසිට් පත හෝ RN නම්බරය<br>රැගෙන ඒම අනිවාර්ය වේ.</div>
 <div class="wa-num">🟢 078 727 5349</div>
 </div>
 
-<!-- 2. ORDER SUMMARY LOCKED FROM GAME -->
 <div class="card">
 <div class="title">Order Details (Locked)</div>
 <div id="orderInfo"><p style="color:#666;">Order ekak na bn, ayet game eken pack thoranna.</p></div>
 <div class="total" id="totalDiv"></div>
 </div>
 
-<!-- 3. WHATSAPP + RECEIPT -->
 <div class="card">
 <div class="title">Customer Details</div>
-
 <label>WhatsApp Number *</label>
 <input type="tel" id="custWA" class="input-box" placeholder="07X XXX XXXX">
-
 <label>Payment Receipt (RN Number eka penna one) *</label>
 <div class="upload-box" onclick="document.getElementById('receiptFile').click()">
 <span id="upText">📸 Click to Upload Receipt</span>
 <img id="preview">
 <input type="file" id="receiptFile" accept="image/*" hidden onchange="previewReceipt(this)">
 </div>
-
 <button id="orderBtn" class="order-btn" onclick="sendToTelegram()">PLACE ORDER → TELEGRAM</button>
 <div id="status" style="text-align:center;margin-top:12px;font-size:12px;color:#aaa;"></div>
 </div>
+</div>
 
+<!-- SUCCESS POPUP - ALUTHEN ADDED -->
+<div class="popup-overlay" id="successPopup">
+<div class="popup-box">
+<div class="popup-icon">✓</div>
+<div class="popup-title">Sending Your Order...</div>
+<div class="popup-msg">✅ Order eka success giya bn!<br><br><b style="color:#fff;">Thanks For Coming Again!</b><br>LAKIYA STORE eken ikmanata reply ekak enawa.<br>WhatsApp balanna.</div>
+<button class="popup-ok" onclick="closePopup()">OKAY → HOME</button>
+</div>
 </div>
 
 <script>
-// === TELEGRAM BOT CONFIG - MEKA WENAS KARANNA ===
-const BOT_TOKEN = "8490222876:AAFO-i36gB_dNsH0ciKf_ZWPzw6tfGNaCzk"; // Ex: 1234567890:AAH...
-const CHAT_ID = "8199335471"; // Ex: 123456789
-// ================================================
+const BOT_TOKEN = "8490222876:AAFO-i36gB_dNsH0ciKf_ZWPzw6tfGNaCzk";
+const CHAT_ID = "8199335471";
 
 const data = JSON.parse(localStorage.getItem('lakiya_order') || '{}');
 let receiptBase64 = "";
@@ -116,18 +120,25 @@ function previewReceipt(input){
   }
 }
 
+function showPopup(){
+  document.getElementById('successPopup').classList.add('show');
+}
+function closePopup(){
+  document.getElementById('successPopup').classList.remove('show');
+  localStorage.removeItem('lakiya_order');
+  window.location.href="index.html";
+}
+
 async function sendToTelegram(){
   const wa = document.getElementById('custWA').value.trim();
   if(!data.userId){ alert("Order ekak na bn!"); return; }
   if(!wa){ alert("WhatsApp number eka danna bn!"); return; }
   if(!receiptBase64){ alert("Receipt eka upload karanna bn! RN eka penna one!"); return; }
-  if(BOT_TOKEN.includes("YOUR_BOT")){ alert("Bot Token danna one bn code eke udama!"); return; }
 
   const btn = document.getElementById('orderBtn');
   const st = document.getElementById('status');
   btn.disabled=true; btn.textContent="Sending..."; st.textContent="Telegram ekata yawanawa...";
 
-  // Lassanata caption eka hadanawa
   let caption = `🔥 *LAKIYA STORE - NEW ORDER* 🔥\n\n`;
   caption += `🎮 Game: ${data.game}\n`;
   caption += `🆔 User ID: ${data.userId}\n`;
@@ -142,10 +153,8 @@ async function sendToTelegram(){
   caption += `\n🧾 RN check karanna!`;
 
   try{
-    // Convert base64 to blob for sendPhoto
     const res = await fetch(receiptBase64);
     const blob = await res.blob();
-
     const formData = new FormData();
     formData.append('chat_id', CHAT_ID);
     formData.append('caption', caption);
@@ -158,10 +167,9 @@ async function sendToTelegram(){
     });
     const result = await response.json();
     if(result.ok){
-      st.innerHTML = `<span style="color:#00ff88;">✅ Order giya bn! WhatsApp eken reply ekak enawa.</span>`;
+      st.innerHTML = `<span style="color:#00ff88;">✅ Order giya bn!</span>`;
       btn.textContent="ORDER SENT ✅";
-      localStorage.removeItem('lakiya_order');
-      setTimeout(()=>{ location.href="index.html"; }, 3000);
+      showPopup(); // POPUP ENAWA METHANA
     }else{
       throw new Error(result.description);
     }
