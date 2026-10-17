@@ -18,7 +18,8 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 .game-header{display:flex;gap:14px;align-items:center;padding:15px 5px 10px 5px;}
 .game-logo{width:82px;height:82px;border-radius:18px;overflow:hidden;border:2px solid #ff0000;background:#111;flex-shrink:0;box-shadow:0 0 20px rgba(255,0,0,0.25);}
 .game-logo img{width:100%;height:100%;object-fit:cover;display:block;}
-.game-info h1{font-size:23px;font-weight:800;line-height:1.1;}
+.game-info h1{font-size:23px;font-weight:800;line-height:1.1;cursor:pointer;user-select:none;}
+.game-info h1:active{opacity:0.7;}
 .game-info p{font-size:12px;color:#bbb;margin-top:4px;}
 .id-box{background:#0e0e0e;border:1.5px solid #222;border-radius:20px;padding:18px 15px;margin:10px 0 15px 0;}
 .id-label{color:#ff0000;font-size:17px;font-weight:800;margin-bottom:12px;}
@@ -26,61 +27,37 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 .id-row input{flex:1;background:#1a1a1a;border:1.5px solid #333;border-radius:12px;padding:13px 15px;color:#fff;font-size:14px;outline:none;text-align:center;}
 .id-row input:focus{border-color:#ff0000;}
 .section-title{font-size:15px;font-weight:800;color:#ff0000;margin:22px 0 12px 5px;letter-spacing:0.5px;}
-
-/* ===== FIX - DEPATTHEN KEPENA EKA NATHI ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2, 1fr);
-  gap:10px;
-  width:100%;
-}
-.pack{
-  background:#111111;
-  border:1.5px solid #232323;
-  border-radius:18px;
-  padding:10px 8px 10px 8px;
-  text-align:center;
-  transition:0.2s;
-  width:100%;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-}
+.grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px;width:100%;}
+.pack{background:#111;border:1.5px solid #232323;border-radius:18px;padding:10px 8px 10px 8px;text-align:center;transition:0.2s;width:100%;overflow:hidden;display:flex;flex-direction:column;align-items:center;}
 .pack.selected{border-color:#ff0000;background:#1a0f0f;box-shadow:0 0 15px rgba(255,0,0,0.25);}
-
-/* PHOTO EKATA SET WENA VIDYATA - CROP WENNE NA */
-.pack-img{
-  width:100%;
-  max-width:105px;
-  height:88px;
-  object-fit:contain; /* cover nemei contain - eka nisa depatthen kepenne na */
-  object-position:center;
-  border-radius:12px;
-  margin:0 auto 8px auto;
-  display:block;
-  background:#000;
-  border:1px solid #1e1e1e;
-  padding:4px;
-}
+.pack-img{width:100%;max-width:105px;height:88px;object-fit:contain;object-position:center;border-radius:12px;margin:0 auto 8px auto;display:block;background:#000;border:1px solid #1e1e1e;padding:4px;}
 .pack-name{font-size:11px;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:center;color:#fff;line-height:1.2;margin-bottom:2px;text-align:center;width:100%;}
 .pack-price{margin:6px 0 4px 0;background:#000;border:1px solid #222;border-radius:20px;padding:5px 8px;font-size:11px;color:#aaa;width:100%;}
 .pack-price span{color:#ffcc00;font-weight:800;font-size:13px;}
 .qty{display:flex;justify-content:space-between;align-items:center;background:#000;border:1.5px solid #333;border-radius:10px;margin-top:8px;overflow:hidden;width:100%;height:38px;}
 .qbtn{width:42px;height:100%;background:#1a1a1a;border:none;color:#fff;font-size:20px;font-weight:800;cursor:pointer;flex-shrink:0;}
 .qnum{flex:1;text-align:center;font-weight:800;font-size:15px;color:#fff;}
-
 .checkout{position:fixed;bottom:0;left:0;width:100%;background:#111;border-top:2px solid #ff0000;padding:12px 15px;display:none;justify-content:space-between;align-items:center;z-index:99;}
 .checkout.show{display:flex;}
 .total{font-size:12px;color:#aaa;}
 .total b{color:#fff;font-size:18px;}
 .next-btn{background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:12px 28px;border-radius:25px;color:#fff;font-weight:900;font-size:14px;cursor:pointer;box-shadow:0 5px 20px rgba(255,0,0,0.4);}
+@media(max-width:380px){.grid{gap:8px;}.pack-img{max-width:90px;height:78px;}.pack-name{font-size:10px;}}
 
-@media(max-width:380px){
- .grid{gap:8px;}
- .pack-img{max-width:90px;height:78px;}
- .pack-name{font-size:10px;}
-}
+/* ===== HIDDEN ADMIN PANEL - BLACK RED THEME ===== */
+#adminModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:9999;justify-content:center;align-items:center;padding:15px;}
+#adminModal.active{display:flex;}
+.admin-box{background:#0e0e0e;width:100%;max-width:450px;border:2px solid #ff0000;border-radius:20px;padding:20px;max-height:90vh;overflow-y:auto;box-shadow:0 0 30px rgba(255,0,0,0.4);}
+.admin-box h2{color:#ff0000;margin-bottom:15px;text-align:center;font-size:18px;}
+.admin-box input[type=password]{width:100%;padding:12px;background:#1a1a1a;border:1.5px solid #333;border-radius:10px;color:#fff;text-align:center;margin-bottom:10px;outline:none;}
+.admin-box button.login{background:linear-gradient(90deg,#ff0000,#cc0000);border:none;width:100%;padding:12px;border-radius:25px;color:#fff;font-weight:800;cursor:pointer;}
+.admin-item{display:flex;justify-content:space-between;align-items:center;background:#111;border:1px solid #222;padding:10px;border-radius:10px;margin:8px 0;}
+.admin-item span{font-size:11px;font-weight:700;flex:1;margin-right:8px;}
+.admin-item input{width:80px;padding:7px;background:#000;border:1px solid #333;border-radius:8px;color:#ffcc00;text-align:center;font-weight:800;}
+.admin-item button{padding:7px 12px;background:#ff0000;border:none;border-radius:8px;color:#fff;font-weight:700;cursor:pointer;margin-left:5px;font-size:11px;}
+.close-admin{float:right;background:#222;color:#fff;border:none;padding:5px 12px;border-radius:8px;cursor:pointer;}
+#toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#ff0000;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;display:none;z-index:10001;}
+#toast.show{display:block;}
 </style>
 </head>
 <body>
@@ -93,7 +70,7 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 <div class="container">
 <div class="game-header">
 <div class="game-logo"><img src="4232e01e-6fd8-41ca-80d3-bd771804e26b.jpeg"></div>
-<div class="game-info"><h1>Free Fire SG</h1><p>✔ Safety guarantee</p><p>⚡ Instant Delivery</p></div>
+<div class="game-info"><h1 id="gameTitle" onclick="hiddenAdminClick()">Free Fire SG</h1><p>✔ Safety guarantee</p><p>⚡ Instant Delivery</p></div>
 </div>
 
 <div class="id-box">
@@ -116,60 +93,95 @@ body{background:#000;color:#fff;min-height:100vh;padding-bottom:110px;}
 
 <div class="checkout" id="checkout"><div class="total">TOTAL<br><b id="tPrice">Rs. 0</b><br><span id="tCount" style="font-size:11px;">0 items</span></div><button class="next-btn" onclick="goPay()">NEXT →</button></div>
 
-<script>
-let allPacks = []; let cart = {}; let idCounter=0;
-
-function addPack(gridId, name, price, fileName){
-  idCounter++;
-  const p = {_id:idCounter, name:name, price:price, file:fileName};
-  allPacks.push(p);
-  document.getElementById(gridId).innerHTML += `
-  <div class="pack" id="pack-${p._id}">
-    <img class="pack-img" src="${p.file}" onerror="this.src='https://via.placeholder.com/100x100/000000/ff0000?text=${encodeURIComponent(name.substring(0,8))}'">
-    <div class="pack-name">${name}</div>
-    <div class="pack-price">Rs. <span>${price}</span></div>
-    <div class="qty">
-      <button class="qbtn" onclick="chg(${p._id}, -1)">−</button>
-      <div class="qnum" id="q-${p._id}">0</div>
-      <button class="qbtn" onclick="chg(${p._id}, 1)">+</button>
+<!-- HIDDEN ADMIN -->
+<div id="adminModal">
+  <div class="admin-box">
+    <button class="close-admin" onclick="closeAdmin()">X</button>
+    <h2>🔒 ADMIN PANEL</h2>
+    <div id="adminLogin">
+      <input type="password" id="adminPw" placeholder="Enter Admin Password">
+      <button class="login" onclick="loginAdmin()">LOGIN</button>
     </div>
-  </div>`;
+    <div id="adminPanel" style="display:none;">
+      <h3 style="color:#ffcc00;font-size:13px;margin-bottom:10px;">Price Edit - Hama phone ekema change wenawa</h3>
+      <div id="adminPriceList"></div>
+    </div>
+  </div>
+</div>
+<div id="toast">Price Updated Successfully!</div>
+
+<!-- FIREBASE SDK - Yasi store eken gaththa -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCAp_X7c6OTwQJ79VLo5dn15kGUDo4FKXQ",
+  authDomain: "yasitopup-3a648.firebaseapp.com",
+  databaseURL: "https://yasitopup-3a648-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "yasitopup-3a648",
+  storageBucket: "yasitopup-3a648.firebasestorage.app",
+  messagingSenderId: "708531417030",
+  appId: "1:708531417030:web:650ec9f7e9520f8bd24cc7"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+const ADMIN_PASSWORD = "lakiya@123";
+
+let packagesData = [];
+let allPacks = [];
+let cart = {};
+let idCounter = 0;
+
+const defaultPackages = [
+  {title:"MEMBERSHIP", grid:"gridMembership", items:[["WEEKLY LITE MEMBERSHIP",150,"IMG_3090.png"],["WEEKLY MEMBERSHIP",595,"IMG_3092.png"],["MONTHLY MEMBERSHIP",2780,"IMG_3091.png"],["VIP MEMBERSHIP",3375,"IMG_3094.webp"],["VIP MAX MEMBERSHIP",10125,"IMG_3094.webp"],["S VIP MEMBERSHIP",5160,"IMG_3094.webp"],["S VIP PLUS MEMBERSHIP",5770,"IMG_3094.webp"]]},
+  {title:"DIAMOND PACK", grid:"gridDiamond", items:[["25 💎",150,"IMG_3089.webp"],["50 💎",300,"IMG_3089.webp"],["100 💎",350,"IMG_3089.webp"],["310 💎",960,"IMG_3089.webp"],["520 💎",1730,"IMG_3089.webp"],["1060 💎",3510,"IMG_3089.webp"],["2180 💎",6590,"IMG_3089.webp"],["5600 💎",17060,"IMG_3089.webp"],["11500 💎",34090,"IMG_3089.webp"],["23000 💎",68180,"IMG_3089.webp"],["46000 💎",136360,"IMG_3089.webp"]]},
+  {title:"LEVEL UP PASS PACKAGE", grid:"gridLevel", items:[["LEVEL 6",150,"IMG_4058.jpeg"],["LEVEL 10",260,"IMG_4058.jpeg"],["LEVEL 15",260,"IMG_4058.jpeg"],["LEVEL 20",260,"IMG_4058.jpeg"],["LEVEL 25",260,"IMG_4058.jpeg"],["LEVEL 30",400,"IMG_4058.jpeg"]]},
+  {title:"EVO ACCESS PACKAGE", grid:"gridEvo", items:[["EVO ACCESS — 3 DAY",225,"IMG_3100.webp"],["EVO ACCESS — 7 DAY",295,"IMG_3100.webp"],["EVO ACCESS — 30 DAY",870,"IMG_3100.webp"]]}
+];
+
+window.onload = function(){
+  db.ref('lakiya_prices').once('value').then(snap=>{
+    const data = snap.val();
+    if(data){ packagesData = data; }
+    else { packagesData = defaultPackages; db.ref('lakiya_prices').set(packagesData); }
+    renderAll();
+    loadAdminPanel();
+  });
+  db.ref('lakiya_prices').on('value', snap=>{
+    const data = snap.val();
+    if(data){ packagesData = data; renderAll(); loadAdminPanel(); }
+  });
 }
 
-// MEMBERSHIP - 7 PACKS
-addPack('gridMembership','WEEKLY LITE MEMBERSHIP',150,'IMG_3090.png');
-addPack('gridMembership','WEEKLY MEMBERSHIP',595,'IMG_3092.png');
-addPack('gridMembership','MONTHLY MEMBERSHIP',2780,'IMG_3091.png');
-addPack('gridMembership','VIP MEMBERSHIP',3375,'IMG_3094.webp');
-addPack('gridMembership','VIP MAX MEMBERSHIP',10125,'IMG_3094.webp');
-addPack('gridMembership','S VIP MEMBERSHIP',5160,'IMG_3094.webp');
-addPack('gridMembership','S VIP PLUS MEMBERSHIP',5770,'IMG_3094.webp');
+function renderAll(){
+  document.getElementById('gridMembership').innerHTML='';
+  document.getElementById('gridDiamond').innerHTML='';
+  document.getElementById('gridLevel').innerHTML='';
+  document.getElementById('gridEvo').innerHTML='';
+  allPacks = []; idCounter = 0;
+  cart = {};
+  document.getElementById('checkout').classList.remove('show');
 
-// DIAMOND PACK - 11 PACKS
-addPack('gridDiamond','25 💎',150,'IMG_3089.webp');
-addPack('gridDiamond','50 💎',300,'IMG_3089.webp');
-addPack('gridDiamond','100 💎',350,'IMG_3089.webp');
-addPack('gridDiamond','310 💎',960,'IMG_3089.webp');
-addPack('gridDiamond','520 💎',1730,'IMG_3089.webp');
-addPack('gridDiamond','1060 💎',3510,'IMG_3089.webp');
-addPack('gridDiamond','2180 💎',6590,'IMG_3089.webp');
-addPack('gridDiamond','5600 💎',17060,'IMG_3089.webp');
-addPack('gridDiamond','11500 💎',34090,'IMG_3089.webp');
-addPack('gridDiamond','23000 💎',68180,'IMG_3089.webp');
-addPack('gridDiamond','46000 💎',136360,'IMG_3089.webp');
-
-// LEVEL UP - 6 PACKS
-addPack('gridLevel','LEVEL 6',150,'IMG_4058.jpeg');
-addPack('gridLevel','LEVEL 10',260,'IMG_4058.jpeg');
-addPack('gridLevel','LEVEL 15',260,'IMG_4058.jpeg');
-addPack('gridLevel','LEVEL 20',260,'IMG_4058.jpeg');
-addPack('gridLevel','LEVEL 25',260,'IMG_4058.jpeg');
-addPack('gridLevel','LEVEL 30',400,'IMG_4058.jpeg');
-
-// EVO ACCESS - 3 PACKS
-addPack('gridEvo','EVO ACCESS — 3 DAY',225,'IMG_3100.webp');
-addPack('gridEvo','EVO ACCESS — 7 DAY',295,'IMG_3100.webp');
-addPack('gridEvo','EVO ACCESS — 30 DAY',870,'IMG_3100.webp');
+  packagesData.forEach(pkg=>{
+    pkg.items.forEach(item=>{
+      idCounter++;
+      const p = {_id:idCounter, name:item[0], price:item[1], file:item[2], grid:pkg.grid};
+      allPacks.push(p);
+      document.getElementById(pkg.grid).innerHTML += `
+      <div class="pack" id="pack-${p._id}">
+        <img class="pack-img" src="${p.file}" onerror="this.src='https://via.placeholder.com/100x100/000/ff0000?text=${encodeURIComponent(p.name.substring(0,8))}'">
+        <div class="pack-name">${p.name}</div>
+        <div class="pack-price">Rs. <span>${p.price}</span></div>
+        <div class="qty">
+          <button class="qbtn" onclick="chg(${p._id}, -1)">−</button>
+          <div class="qnum" id="q-${p._id}">0</div>
+          <button class="qbtn" onclick="chg(${p._id}, 1)">+</button>
+        </div>
+      </div>`;
+    });
+  });
+}
 
 function chg(id, d){
   cart[id] = (cart[id]||0) + d;
@@ -193,13 +205,41 @@ function goPay(){
   let items=[];
   for(let id in cart){ let p=allPacks.find(x=>x._id==id); items.push({name:p.name, price:p.price, qty:cart[id], total:p.price*cart[id]}); }
   if(items.length==0){ alert("Pack ekak thoranna bn!"); return; }
-  localStorage.setItem('lakiya_order', JSON.stringify({
-    game:"Free Fire SG",
-    userId:uid,
-    items:items,
-    totalText: document.getElementById('tPrice').textContent
-  }));
+  localStorage.setItem('lakiya_order', JSON.stringify({game:"Free Fire SG", userId:uid, items:items, totalText: document.getElementById('tPrice').textContent}));
   window.location.href="payment.html";
+}
+
+// ===== HIDDEN ADMIN - 10 CLICKS =====
+let clickCount = 0; let clickTimer = null;
+function hiddenAdminClick(){
+  clickCount++;
+  clearTimeout(clickTimer);
+  clickTimer = setTimeout(()=> clickCount = 0, 3000);
+  if(clickCount >= 10){ clickCount = 0; document.getElementById('adminModal').classList.add('active'); }
+}
+function closeAdmin(){ document.getElementById('adminModal').classList.remove('active'); document.getElementById('adminLogin').style.display='block'; document.getElementById('adminPanel').style.display='none'; }
+function loginAdmin(){
+  if(document.getElementById('adminPw').value === ADMIN_PASSWORD){
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminPanel').style.display='block';
+  } else alert('Wrong Password bn!');
+}
+function loadAdminPanel(){
+  let html = '';
+  packagesData.forEach((pkg, pIndex)=>{
+    html += `<h4 style="margin-top:15px;color:#ff0000;font-size:13px;">${pkg.title}</h4>`;
+    pkg.items.forEach((item, iIndex)=>{
+      html += `<div class="admin-item"><span>${item[0]}</span><div>Rs.<input type="number" id="price-${pIndex}-${iIndex}" value="${item[1]}"><button onclick="updatePrice(${pIndex}, ${iIndex})">Update</button></div></div>`;
+    });
+  });
+  document.getElementById('adminPriceList').innerHTML = html;
+}
+function updatePrice(pIndex, iIndex){
+  let newPrice = Number(document.getElementById(`price-${pIndex}-${iIndex}`).value);
+  packagesData[pIndex].items[iIndex][1] = newPrice;
+  db.ref('lakiya_prices').set(packagesData).then(()=>{
+    let t = document.getElementById('toast'); t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 2000);
+  });
 }
 </script>
 </body>
