@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#000000;color:#fff;min-height:100vh;}
+body{background:#000;color:#fff;min-height:100vh;}
 .header{width:100%;background:#000;padding:0;}
 .top-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;background:#000;border-bottom:2px solid #1a1a1a;}
 .logo-left{display:flex;align-items:center;gap:10px;}
@@ -34,14 +34,14 @@ body{background:#000000;color:#fff;min-height:100vh;}
 .main-title{text-align:center;font-size:22px;font-weight:800;margin:20px 0;color:#fff;}
 .main-title span{color:#ff0000;}
 .grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:12px;}
-.game-card{background:#111111;border:1.5px solid #222222;border-radius:16px;padding:8px 8px 10px 8px;text-align:center;transition:0.2s;}
+.game-card{background:#111;border:1.5px solid #222;border-radius:16px;padding:8px 8px 10px 8px;text-align:center;transition:0.2s;}
 .game-card:hover{border-color:#ff0000;transform:translateY(-3px);box-shadow:0 5px 20px rgba(255,0,0,0.2);}
 .game-name{font-size:11px;font-weight:700;min-height:34px;display:flex;align-items:center;justify-content:center;line-height:1.2;margin-bottom:6px;color:#fff;}
 .game-card img{width:100%;height:100px;object-fit:cover;border-radius:12px;margin-bottom:8px;background:#000;border:1px solid #222;}
 .topup-btn{width:100%;background:linear-gradient(90deg, #ff0000, #cc0000);border:none;padding:8px 0;border-radius:20px;color:#fff;font-size:12px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px rgba(255,0,0,0.3);}
-.footer{text-align:center;padding:25px 10px 10px 10px;font-size:11px;color:#555;border-top:1px solid #111;margin-top:30px;}
 @media(max-width:400px){.grid{grid-template-columns:repeat(2, 1fr);}.typing-text{font-size:13px;}}
-/* ===== BLACK RED THEME POPUP - LASSANA ===== */
+
+/* ===== BLACK RED THEME POPUP ===== */
 #welcomeOverlay{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at top, #1a0000 0%, #000 65%);z-index:9999;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .welcome-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.22;filter:blur(3px);}
 .welcome-dark{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 70%, #000 100%);}
@@ -55,6 +55,41 @@ body{background:#000000;color:#fff;min-height:100vh;}
 .login-btn-big:active{transform:scale(0.96);}
 @keyframes pulseRed{0%{box-shadow:0 0 0 0 rgba(255,0,0,0.7)}70%{box-shadow:0 0 0 18px rgba(255,0,0,0)}100%{box-shadow:0 0 0 0 rgba(255,0,0,0)}}
 .small-note{margin-top:14px;font-size:9px;color:#555;letter-spacing:0.5px;}
+
+/* ===== FOOTER - LAKIYA STORE BLACK RED ===== */
+.custom-footer{background:#0a0a0a;border-top:2px solid #ff0000;margin-top:30px;padding:25px 15px 80px 15px;}
+.footer-container{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}
+.footer-section h2{font-size:14px;font-weight:800;color:#ff0000;margin-bottom:10px;}
+.footer-section p{font-size:11px;color:#aaa;line-height:1.6;}
+.footer-section ul{list-style:none;}
+.footer-section ul li{margin:6px 0;}
+.footer-section ul li a{color:#ccc;text-decoration:none;font-size:12px;}
+.footer-section ul li a:hover{color:#ff0000;}
+.whatsapp-btn{display:inline-block;margin-top:8px;background:#25D366;color:#fff;font-size:11px;font-weight:800;padding:7px 12px;border-radius:20px;text-decoration:none;}
+.trust-box{max-width:700px;margin:20px auto 0 auto;text-align:center;background:#111;border:1px solid #222;border-radius:15px;padding:12px;font-weight:800;color:#ffcc00;font-size:13px;}
+.social-box{max-width:700px;margin:20px auto 0 auto;background:#111;border:1.5px solid #222;border-radius:20px;padding:18px;text-align:center;}
+.social-box h2{font-size:14px;font-weight:800;color:#fff;margin-bottom:15px;}
+.social-grid{display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;}
+.social-item{display:flex;flex-direction:column;align-items:center;gap:6px;}
+.social-item span{font-size:10px;color:#aaa;font-weight:600;}
+.social-card{width:52px;height:52px;background:#000;border:1.5px solid #333;border-radius:14px;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:0.2s;}
+.social-card:hover{border-color:#ff0000;transform:scale(1.05);}
+.social-card img{width:100%;height:100%;object-fit:cover;}
+.contact-links{display:flex;gap:10px;justify-content:center;margin-top:18px;}
+.call-btn,.chat-btn{padding:10px 22px;border-radius:25px;font-size:12px;font-weight:800;text-decoration:none;color:#fff;}
+.call-btn{background:#111;border:1.5px solid #333;}
+.chat-btn{background:linear-gradient(90deg,#ff0000,#cc0000);}
+.footer-bottom{max-width:700px;margin:20px auto 0 auto;text-align:center;border-top:1px solid #222;padding-top:15px;}
+.footer-bottom p{font-size:11px;color:#777;}
+.footer-bottom p:last-child{color:#555;margin-top:4px;}
+
+.float-btn{position:fixed;bottom:20px;right:20px;width:55px;height:55px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;color:#fff;box-shadow:0 5px 20px rgba(37,211,102,0.5);z-index:999;}
+
+@media(max-width:600px){
+  .footer-container{grid-template-columns:1fr;}
+  .social-grid{grid-template-columns:repeat(5, 1fr);gap:6px;}
+  .social-card{width:45px;height:45px;}
+}
 </style>
 </head>
 <body>
@@ -94,11 +129,82 @@ body{background:#000000;color:#fff;min-height:100vh;}
 <div class="container">
 <div class="main-title">Select your <span>Game</span> to Top up</div>
 <div class="grid" id="gameGrid"></div>
-<div class="footer">© 2026 LAKIYA STORE - All Rights Reserved</div>
 </div>
 
+<!-- ===== FOOTER EKE - YATAMA PENNA ===== -->
+<div class="custom-footer">
+<div class="footer-container">
+  <div class="footer-section">
+    <h2>About Us</h2>
+    <p>LAKIYA STORE - Fast & Secure Top Up. 24/7 service. Trusted & Best Top Up Service in Sri Lanka.</p>
+  </div>
+  <div class="footer-section">
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="topup.html">Top Up</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h2>Contact</h2>
+    <p>📞 077 8373 325</p>
+    <a href="https://wa.me/94778373325" target="_blank" class="whatsapp-btn">💬 WhatsApp</a>
+  </div>
+</div>
+
+<div class="trust-box">⭐ Rated 5 Stars - Trusted by 1000+ Gamers</div>
+
+<div class="social-box">
+  <h2>Follow Us</h2>
+  <div class="social-grid">
+    <div class="social-item">
+      <a href="https://www.facebook.com/gaming.lkiya?mibextid=ZbWKwL" target="_blank" class="social-card">
+        <img src="WhatsApp Image 2026-09-21 at 14.12.50.fb.jpeg" alt="Facebook">
+      </a>
+      <span>Facebook</span>
+    </div>
+    <div class="social-item">
+      <a href="https://www.instagram.com/" target="_blank" class="social-card">
+        <img src="WhatsApp Image 2026-09-21 at 14.12.51.in.jpeg" alt="Instagram">
+      </a>
+      <span>Instagram</span>
+    </div>
+    <div class="social-item">
+      <a href="https://tiktok.com/@lakiya2026m" target="_blank" class="social-card">
+        <img src="WhatsApp Image 2026-09-21 at 14.12.51.tt.jpeg" alt="TikTok">
+      </a>
+      <span>TikTok</span>
+    </div>
+    <div class="social-item">
+      <a href="https://t.me/lakiyatopup" target="_blank" class="social-card">
+        <img src="WhatsApp Image 2026-09-21 at 14.12.51.jpeg" alt="Telegram">
+      </a>
+      <span>Telegram</span>
+    </div>
+    <div class="social-item">
+      <a href="https://wa.me/94787275349" target="_blank" class="social-card">
+        <img src="WhatsApp Image 2026-09-21 at 14.12.50.jpeg" alt="WhatsApp">
+      </a>
+      <span>WhatsApp</span>
+    </div>
+  </div>
+  <div class="contact-links">
+    <a href="tel:+94787275349" class="call-btn">📞 Call</a>
+    <a href="https://wa.me/94787275349" target="_blank" class="chat-btn">💬 Chat</a>
+  </div>
+</div>
+
+<div class="footer-bottom">
+  <p>© 2026 LAKIYA STORE. All Rights Reserved.</p>
+  <p style="font-size:12px;color:#888;">🤖 Developer by :- PABAYA</p>
+</div>
+
+</div>
+<a href="https://wa.me/94787275349" target="_blank" class="float-btn">💬</a>
+
 <script>
-// ========= TELEGRAM - ALUTH TOKEN DANNNA, MEKA REVOKE KARALA =========
+// ========= TELEGRAM =========
 const BOT_TOKEN = "8839700271:AAGfliScq0ycPvovpQ4wbTrzwjoGdqE_GqQ";
 const CHAT_ID = "8199335471";
 // =====================================================================
@@ -122,7 +228,6 @@ const texts = ["Welcome to LAKIYA STORE ❤️", "Fast & Secure Top Up in Sri La
 let textIndex = 0;let charIndex = 0;let isDeleting = false; const typingEl = document.getElementById('typing');
 function typeEffect(){ let currentText = texts[textIndex]; if(isDeleting){typingEl.textContent = currentText.substring(0, charIndex - 1);charIndex--;}else{typingEl.textContent = currentText.substring(0, charIndex + 1);charIndex++;} let speed = isDeleting? 40 : 80; if(!isDeleting && charIndex === currentText.length){speed = 2000;isDeleting = true;}else if(isDeleting && charIndex === 0){isDeleting = false;textIndex = (textIndex + 1) % texts.length;speed = 500;} setTimeout(typeEffect, speed); } typeEffect();
 
-// SLOW TYPING - LASSANA
 const welcomeFullText = "WELCOME TO LAKIYA STORE";
 let wIdx = 0; const wEl = document.getElementById('welcomeTyping');
 function welcomeType(){
